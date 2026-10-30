@@ -16,6 +16,8 @@
             <a href="#assessment">تحديد المسار</a>
             <a href="#cv-builder">السيرة الذاتية</a>
             <a href="#interview">الإنترفيو</a>
+            <a href="#fields-videos">خريطة المجالات</a>
+            <a href="#feedback-section">تقييم المنصة</a>
         </nav>
     </header>
 
@@ -99,6 +101,9 @@
                 <h3>توصيات مسارك المهني:</h3>
                 <div id="recommendationsOutput"></div>
             </div>
+            <div class="section-image-box">
+    <img src="assets/path-icon.png" alt="تحديد المسار المهني">
+</div>
         </section>
         <!-- قسم السيرة الذاتية (CV Builder & Tips) -->
         <section id="cv-builder" class="cv-section">
@@ -142,6 +147,9 @@
                 </div>
 
                 <div id="cvSummaryResult" class="cv-summary-output" style="display: none;"></div>
+                <div class="section-image-box">
+    <img src="assets/cv-preview.png" alt="معاينة السيرة الذاتية">
+</div>
             </div>
         </section>
         <!-- قسم تحضير الإنترفيو (Interview Prep) -->
@@ -167,7 +175,9 @@
                         <p><strong>الإجابة النموذجية:</strong> اذكر نقطة ضعف حقيقية لكن بتسعى لتحسينها حالياً (مثلاً: "كنت بتوتر في العروض التقديمية، وبدأت أتدرب وأمارس قدام زمايلي لتجاوز ده").</p>
                     </div>
                 </div>
-
+                    <div class="section-image-box">
+    <img src="assets/interview-prep.png" alt="تحضير المقابلات">
+</div>
                 <div id="tech-questions" class="questions-content" style="display: none;">
                     <div class="faq-item">
                         <h4>🎨 (UI/UX) إيه الفرق بين UI و UX؟</h4>
@@ -178,6 +188,128 @@
                         <p><strong>الإجابة النموذجية:</strong> تصميم وتطوير الموقع بحيث يتكيف شكله وحجمه تلقائياً مع مختلف أجهزة وشاشات المستخدمين (موبايل، تابلت، شاشة كمبيوتر).</p>
                     </div>
                 </div>
+            </div>
+        </section>
+        <!-- قسم معرض الوسائط التفاعلية (Media Gallery Section) -->
+        <section id="media-gallery" class="media-section">
+            <div class="section-title">
+                <h2>معرض الوسائط والنصائح السريعة</h2>
+                <p>شاهد مقاطع قصيرة وصوراً توضيحية مُولّدة بالذكاء الاصطناعي لتبسيط رحلتك المهنية</p>
+            </div>
+
+            <div class="pinterest-grid">
+                
+                <!-- كارت 1: فيديو نصيحة المقابلة -->
+                <div class="media-card video-card">
+                    <div class="media-wrapper">
+                        <video controls poster="assets/interview-thumb.jpg">
+                            <source src="assets/interview-tips.mp4" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                        <span class="media-type-tag">فيديو AI</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>كيف تجيب على سؤال "تحدث عن نفسك"؟</h3>
+                        <p>شرح سريع في 30 ثانية باستخدام متحدث افتراضي من HeyGen.</p>
+                    </div>
+                </div>
+
+                <!-- كارت 2: صورة قبل وبعد الـ CV -->
+                <div class="media-card image-card">
+                    <div class="media-wrapper">
+                        <img src="assets/cv-comparison.png" alt="مقارنة الـ CV">
+                        <span class="media-type-tag image-tag">صورة توضيحية</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>الفرق بين الـ CV التقليدي والـ AI CV</h3>
+                        <p>تصميم مقارب تم استخراجه وتنسيقه بذكاء باستخدام ChatGPT & Midjourney.</p>
+                    </div>
+                </div>
+
+                <!-- كارت 3: فيديو طريقة توليد الملخص -->
+                <div class="media-card video-card">
+                    <div class="media-wrapper">
+                        <video controls poster="assets/summary-thumb.jpg">
+                            <source src="assets/ai-summary-demo.mp4" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                        <span class="media-type-tag">فيديو تطبيق</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>توليد ملخص الـ CV بنقرة واحدة</h3>
+                        <p>تطبيق عملي سريع يوضح آلية عمل الذكاء الاصطناعي داخل منصة مسارك.</p>
+                    </div>
+                </div>
+
+                <!-- كارت 4: صورة المستشارين الافتراضيين -->
+                <div class="media-card image-card">
+                    <div class="media-wrapper">
+                        <img src="assets/ai-advisors.png" alt="المستشارون الافتراضيون">
+                        <span class="media-type-tag image-tag">أفاتار AI</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>مستشاروك الافتراضيون للمقابلات</h3>
+                        <p>شخصيات افتراضية جاهزة لتخوض معها تجربة محاكاة المقابلة الشخصية.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- قسم خارطة المجالات -->
+        <section id="fields-videos" class="section-container">
+            <div class="section-title">
+                <h2>خريطةالمجالات</h2>
+                <p>استكشف فيديوهات تعريفية سريعة ومصممة بالـ AI لأشهر المجالات المطلوبة</p>
+            </div>
+
+            <div class="videos-grid">
+                <div class="video-card">
+                    <video controls poster="assets/uiux-thumb.jpg">
+                        <source src="assets/uiux-guide.mp4" type="video/mp4">
+                    </video>
+                    <h3>تصميم الواجهات (UI/UX)</h3>
+                </div>
+
+                <div class="video-card">
+                    <video controls poster="assets/programming-thumb.jpg">
+                        <source src="assets/programming-guide.mp4" type="video/mp4">
+                    </video>
+                    <h3>البرمجة والتطوير (Programming)</h3>
+                </div>
+
+                <div class="video-card">
+                    <video controls poster="assets/graphic-thumb.jpg">
+                        <source src="assets/graphic-guide.mp4" type="video/mp4">
+                    </video>
+                    <h3>التصميم الجرافيكي (Graphic Design)</h3>
+                </div>
+
+                <div class="video-card">
+                    <video controls poster="assets/qa-thumb.jpg">
+                        <source src="assets/qa-guide.mp4" type="video/mp4">
+                    </video>
+                    <h3>جودة البرمجيات (Software QA)</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم تقييم المنصة -->
+        <section id="feedback-section" class="section-container">
+            <div class="section-title">
+                <h2> رأيكم يهمنا في Career Start</h2>
+                <p>شاركونا تقييمكم للمنصة لمساعدتنا في تطويرها وتحديث الأدوات باستمرار</p>
+            </div>
+
+            <div class="rating-box">
+                <div class="stars-rating">
+                    <span class="star" data-value="1" onclick="setRating(1)">★</span>
+                    <span class="star" data-value="2" onclick="setRating(2)">★</span>
+                    <span class="star" data-value="3" onclick="setRating(3)">★</span>
+                    <span class="star" data-value="4" onclick="setRating(4)">★</span>
+                    <span class="star" data-value="5" onclick="setRating(5)">★</span>
+                </div>
+                <textarea id="feedbackText" placeholder="اكتب انطباعك أو اقتراحاتك لتطوير المنصة..."></textarea>
+                <button class="btn-primary" onclick="submitFeedback()">إرسال التقييم</button>
             </div>
         </section>
     </main>
