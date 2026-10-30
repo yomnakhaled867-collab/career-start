@@ -1,0 +1,412 @@
+/* استيراد خط Tajawal العربي */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background-color: #0b1329;
+    color: #1e293b;
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+/* 1. الهيدر */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #0b1329;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+.navbar nav a {
+    margin-right: 1.2rem;
+    text-decoration: none;
+    color: #94a3b8;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #38bdf8;
+}
+
+/* 2. الهيرو سكشن */
+.hero-section {
+    background: linear-gradient(180deg, #0b1329 0%, #111c3a 100%);
+    color: #ffffff;
+    padding: 3rem 5% 5rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    margin-bottom: 0.8rem;
+}
+
+.hero-text h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+}
+
+.hero-text p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.hero-video {
+    flex: 1;
+    min-width: 280px;
+}
+
+.video-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #000000;
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+}
+
+/* 3. كارت الاستمارة العائم */
+.assessment-section {
+    max-width: 750px;
+    margin: -2.5rem auto 3rem auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.career-form {
+    background-color: #1a264a;
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.assessment-section h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+
+.assessment-section p {
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    font-size: 0.88rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #38bdf8;
+}
+
+.form-group option {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* 4. كارت النتيجة */
+.results-container {
+    margin-top: 1.8rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #2563eb;
+    color: #1e293b;
+}
+
+.results-container h3 {
+    color: #0f172a;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+/* 5. الفوتر */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #070d1d;
+    color: #64748b;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* قسم السيرة الذاتية */
+.cv-section {
+    padding: 4rem 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-title h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.section-title p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.cv-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.cv-card {
+    background-color: #1a264a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.8rem;
+    color: #ffffff;
+}
+
+.cv-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cv-card h3 {
+    font-size: 1.2rem;
+    color: #38bdf8;
+    margin-bottom: 1rem;
+}
+
+.cv-card ul {
+    list-style-type: disc;
+    padding-right: 1.2rem;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* أداة الـ AI للملخص */
+.cv-ai-box {
+    background-color: #111c3a;
+    border: 1px solid #2563eb;
+    border-radius: 12px;
+    padding: 2rem;
+    color: #ffffff;
+}
+
+.cv-ai-box h3 {
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+
+.cv-ai-box p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+}
+
+.cv-ai-inputs {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cv-ai-inputs input {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.8rem 1rem;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    color: #ffffff;
+    outline: none;
+}
+
+.cv-summary-output {
+    margin-top: 1.2rem;
+    background-color: #0f172a;
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    border-right: 4px solid #38bdf8;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+/* قسم الإنترفيو */
+.interview-section {
+    padding: 4rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.interview-box {
+    background-color: #1a264a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.interview-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.8rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    color: #38bdf8;
+    background-color: #0f172a;
+}
+
+.faq-item {
+    background-color: #0f172a;
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-right: 3px solid #2563eb;
+}
+
+.faq-item h4 {
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}

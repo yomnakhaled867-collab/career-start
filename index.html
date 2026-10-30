@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسارك المهني | منصة دعم الخريجين الجدد</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الهيدر وقائمة التنقل -->
+    <header class="navbar">
+        <div class="logo">مسارك <span>AI</span></div>
+        <nav>
+            <a href="#home">الرئيسية</a>
+            <a href="#assessment">تحديد المسار</a>
+            <a href="#cv-builder">السيرة الذاتية</a>
+            <a href="#interview">الإنترفيو</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- قسم الواجهة الرئيسية والفيديو -->
+        <section id="home" class="hero-section">
+            <div class="hero-text">
+                <span class="badge">دليلك الذكي لسوق العمل ✦</span>
+                <h1>ابني مستقبلك المهني بذكاء وبخطوات ثابته</h1>
+                <p>منصة متكاملة لحديثي التخرج لمساعدتك في تحديد مسارك المفضل، اكتساب المهارات، وتجهيز الـ CV والإنترفيو باستخدام الذكاء الاصطناعي.</p>
+                <a href="#assessment" class="btn-primary">ابدأ تحديد مسارك الآن</a>
+            </div>
+
+            <!-- مكان الفيديو التعريفي -->
+            <div class="hero-video">
+                <div class="video-container">
+                    <video controls width="100%">
+                        <source src="assets/from ai.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- استمارة تحديد المسار الوظيفي -->
+        <section id="assessment" class="assessment-section">
+            <h2>استمارة تحديد المسار الوظيفي</h2>
+            <p>ادخل بياناتك واهتماماتك للحصول على توصيات مخصصة لك بالذكاء الاصطناعي:</p>
+
+            <form id="careerForm" class="career-form">
+                <div class="form-group">
+                    <label for="fullName">الاسم بالكامل:</label>
+                    <input type="text" id="fullName" placeholder="مثال: ياسمين" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="governorate">المحافظة:</label>
+                    <select id="governorate" required>
+                        <option value="">اختر المحافظة...</option>
+                        <option value="دمياط">دمياط</option>
+                        <option value="القاهرة">القاهرة</option>
+                        <option value="الإسكندرية">الإسكندرية</option>
+                        <option value="الدقهلية">الدقهلية</option>
+                        <option value="أخرى">محافظة أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="workEnv">بيئة العمل المفضلة:</label>
+                    <select id="workEnv" required>
+                        <option value="remote">عمل حر / عن بُعد (Remote)</option>
+                        <option value="onsite">من مقر الشركة (On-site)</option>
+                        <option value="hybrid">هجين (Hybrid)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobType">نوع دوام العمل:</label>
+                    <select id="jobType" required>
+                        <option value="full-time">دوام كامل (Full-time)</option>
+                        <option value="part-time">دوام جزئي (Part-time)</option>
+                        <option value="freelance">بالقطعة (Freelance)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">المجال / الاهتمام الرئيسي:</label>
+                    <select id="interest" required>
+                        <option value="ui-ux">تصميم واجهات المستخدم (UI/UX)</option>
+                        <option value="programming">تطوير البرمجيات والويب (Programming)</option>
+                        <option value="graphic">التصميم الجرافيكي (Graphic Design)</option>
+                        <option value="qa">جودة البرمجيات (Software QA)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">عرض التوصيات المخصصة ✨</button>
+            </form>
+
+            <!-- مكان ظهور التوصيات -->
+            <div id="results" class="results-container" style="display: none;">
+                <h3>توصيات مسارك المهني:</h3>
+                <div id="recommendationsOutput"></div>
+            </div>
+        </section>
+        <!-- قسم السيرة الذاتية (CV Builder & Tips) -->
+        <section id="cv-builder" class="cv-section">
+            <div class="section-title">
+                <h2>دليل وكتابة السيرة الذاتية (CV)</h2>
+                <p>كيف تبني سيرتك الذاتية الأولى باحترافية حتى لو لم تكن لديك خبرة سابقة</p>
+            </div>
+
+            <div class="cv-cards-grid">
+                <div class="cv-card">
+                    <div class="cv-icon">📄</div>
+                    <h3>الهيكل الأساسي للـ CV</h3>
+                    <ul>
+                        <li><strong>البيانات الشخصية:</strong> الاسم، المسمى الوظيفي، رقم الهاتف، والبريد الإلكتروني الاحترافي.</li>
+                        <li><strong>الملخص المهني (Summary):</strong> 2-3 أسطر توضح مهاراتك واهتماماتك الشغوفة بالوظيفة.</li>
+                        <li><strong>المشاريع (Projects):</strong> أهم قسم لحديثي التخرج؛ اعرض مشاريع الكلية أو مشاريعك الشخصية.</li>
+                        <li><strong>المهارات (Skills):</strong> قسم المهارات إلى تقنية (Technical) وشخصية (Soft Skills).</li>
+                    </ul>
+                </div>
+
+                <div class="cv-card">
+                    <div class="cv-icon">⚠️</div>
+                    <h3>أخطاء شائعة تجنبها</h3>
+                    <ul>
+                        <li>استخدام بريد إلكتروني غير رسمي (مثل أسماء المستعار).</li>
+                        <li>إدراج معلومات شخصية غير ضرورية (الحالة الاجتماعية، الديانة... إلخ).</li>
+                        <li>الأخطاء الإملائية؛ راجع النص جيداً قبل التصدير.</li>
+                        <li>زيادة عدد الصفحات عن صفحة واحدة فقط لحديثي التخرج.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- أداة توليد ملخص CV سريع بالـ AI -->
+            <div class="cv-ai-box">
+                <h3>✨ مولّد ملخص الـ CV بالذكاء الاصطناعي</h3>
+                <p>اكتب تخصصك والمهارة الأساسية عندك، وسيقوم النظام بصياغة ملخص مهني احترافي لك:</p>
+                
+                <div class="cv-ai-inputs">
+                    <input type="text" id="cvSkillInput" placeholder="مثال: مصمم UI/UX مبتدئ يتقن Figma">
+                    <button id="generateSummaryBtn" class="btn-primary">توليد الملخص</button>
+                </div>
+
+                <div id="cvSummaryResult" class="cv-summary-output" style="display: none;"></div>
+            </div>
+        </section>
+        <!-- قسم تحضير الإنترفيو (Interview Prep) -->
+        <section id="interview" class="interview-section">
+            <div class="section-title">
+                <h2>استعدادات ومقابلات العمل (Interview Prep)</h2>
+                <p>تدرّب على أشهر أسئلة مقابلات العمل وكيفية الإجابة عليها بثقة</p>
+            </div>
+
+            <div class="interview-box">
+                <div class="interview-tabs">
+                    <button class="tab-btn active" onclick="showInterviewCategory('hr')">أسئلة HR العامة</button>
+                    <button class="tab-btn" onclick="showInterviewCategory('tech')">أسئلة تقنية (Technical)</button>
+                </div>
+
+                <div id="hr-questions" class="questions-content">
+                    <div class="faq-item">
+                        <h4>❓ اتكلم عن نفسك؟ (Tell me about yourself)</h4>
+                        <p><strong>الإجابة النموذجية:</strong> ابدأ برخص مختصر عن خلفيتك الأكاديمية، أهم المهارات والمشاريع اللي اشتغلت عليها، وليه مهتم بالفرصة دي بالذات (تجنب الحكي عن حياتك الشخصية).</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>❓ إيه هي نقاط ضعفك؟</h4>
+                        <p><strong>الإجابة النموذجية:</strong> اذكر نقطة ضعف حقيقية لكن بتسعى لتحسينها حالياً (مثلاً: "كنت بتوتر في العروض التقديمية، وبدأت أتدرب وأمارس قدام زمايلي لتجاوز ده").</p>
+                    </div>
+                </div>
+
+                <div id="tech-questions" class="questions-content" style="display: none;">
+                    <div class="faq-item">
+                        <h4>🎨 (UI/UX) إيه الفرق بين UI و UX؟</h4>
+                        <p><strong>الإجابة النموذجية:</strong> الـ UX يركز على تجربة المستخدم وسهولة الاستخدام ورحلة الطالب داخل النظام، بينما الـ UI يركز على الواجهة البصرية والألوان والخطوط والشكل المباشر.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>💻 (Programming) إيه هو مفهوم الـ Responsive Design؟</h4>
+                        <p><strong>الإجابة النموذجية:</strong> تصميم وتطوير الموقع بحيث يتكيف شكله وحجمه تلقائياً مع مختلف أجهزة وشاشات المستخدمين (موبايل، تابلت، شاشة كمبيوتر).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 جميع الحقوق محفوظة - منصة مسارك AI</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
