@@ -647,3 +647,70 @@ footer {
     resize: none;
     box-sizing: border-box;
 }
+/* تظبيط أبعاد الفيديو جوه الكارت عشان ما يضخمش */
+.card-media {
+    position: relative;
+    width: 100%;
+    height: 180px; /* ارتفاع ثابت ومتناسق */
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background-color: #000;
+}
+
+.card-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* بيخلي الفيديو يملأ المربع بالظبط من غير ما يمطه */
+    display: block;
+}
+/* ظبط ألوان الكروت وارتفاعها الموحد */
+.grid .card, .features-grid .card, div.card {
+    background-color: #0d1527 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+/* توحيد ارتفاع الجزء الخاص بالميديا/الفيديو/الصورة */
+.card-media, .card video, .card img {
+    height: 180px !important;
+    max-height: 180px !important;
+    object-fit: cover !important;
+}
+
+/* توضيح العنوان والوصف الباهت */
+.card h3, .card .card-content h3 {
+    color: #ffffff !important;
+    font-size: 1.05rem !important;
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.4rem !important;
+}
+
+.card p, .card .card-content p {
+    color: #cbd5e1 !important; /* لون رمادي فاتح مقروء جداً */
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+}
+/* ستايل الشعار الأرجواني فوق الفيديو */
+.card-media .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #150f37;
+    color: #359af2;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* تأثير التنوير والإضاءة لما تشاوري بالماوس على أي كارت */
+.card:hover, .media-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8 !important;
+    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.25);
+    transition: all 0.3s ease;
+}
