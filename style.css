@@ -714,3 +714,175 @@ footer {
     box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.25);
     transition: all 0.3s ease;
 }
+/* الأشكال الزخرفية والتوهج في الخلفية */
+.bg-decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* هالات مضيئة ناعمة */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+}
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: #38bdf8;
+    top: -10%;
+    left: 10%;
+}
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    background: #a855f7;
+    top: 30%;
+    right: -10%;
+}
+
+/* تأثير الشبكة البرمجية */
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* تأثير التوهج الأزرق حول الفيديو والزرار الاستمارة */
+video, .form-container, .btn-primary {
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0284c7, #38bdf8) !important;
+    border: none !important;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+/* خلفية الشبكة التقنية */
+.tech-bg-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* التوهج المضيء في الأركان */
+.orb-top-left {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: rgba(56, 189, 248, 0.2);
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.orb-bottom-right {
+    position: fixed;
+    bottom: -100px;
+    right: -100px;
+    width: 450px;
+    height: 450px;
+    background: rgba(168, 85, 247, 0.15);
+    filter: blur(140px);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* الشريط الأيقونات الجانبي المضيء */
+.side-floating-bar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 12px 8px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 99;
+}
+
+.side-floating-bar a {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.side-floating-bar a:hover {
+    color: #38bdf8;
+}
+
+/* الكود المضيء في الخلفية */
+.floating-code-snippet {
+    position: absolute;
+    top: 15%;
+    right: 18%;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: rgba(148, 163, 184, 0.5);
+    pointer-events: none;
+}
+
+.floating-code-snippet .highlight {
+    color: rgba(56, 189, 248, 0.8);
+}
+
+/* تحديد إطار الفيديو والاستمارة بالحدود المضيئة */
+video, .form-container {
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.15) !important;
+    border-radius: 16px;
+}
+.side-floating-bar a i {
+    font-size: 1.3rem;
+    color: #38bdf8;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+}
+.floating-code-snippet {
+    position: absolute;
+    top: 15%;
+    right: 18%;
+    font-family: 'Fira Code', monospace, sans-serif;
+    font-size: 0.9rem;
+    color: rgba(148, 163, 184, 0.6);
+    direction: ltr !important;
+    text-align: left;
+    pointer-events: none;
+}
+
+.floating-code-snippet .highlight {
+    color: #38bdf8;
+    font-weight: bold;
+}
