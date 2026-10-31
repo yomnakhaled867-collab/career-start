@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل السيرة الذاتية | Career Start</title>
+    <link rel="stylesheet" href="../css/cv-analyzer.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <script src="../js/cv-analyzer.js" defer></script>
+</head>
+<body>
+    <div class="bg-decorations"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div><div class="grid-overlay"></div></div>
+    <div class="tech-bg-grid"></div><div class="glow-orb orb-top-left"></div><div class="glow-orb orb-bottom-right"></div>
+<header class="navbar">
+        <div class="logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Career Start<span>AI</span></a></div>
+        <nav>
+            <a href="../index.html">الرئيسية</a>
+            <a href="quiz.html">تحديد المسار</a>
+            <a href="cv-guide.html">دليل السيرة الذاتية</a>
+            <a href="cv-analyzer.html">تحليل السيرة الذاتية</a>
+            <a href="interview.html">الإنترفيو</a>
+            <a href="roadmaps.html">خريطة المجالات</a>
+        </nav>
+    </header>
+    <main>
+        <section class="cv-section"><div class="cv-ai-box">
+                <h3>✨ مولّد ملخص الـ CV بالذكاء الاصطناعي</h3>
+                <p>اكتب تخصصك والمهارة الأساسية عندك، وسيقوم النظام بصياغة ملخص مهني احترافي لك:</p>
+                
+                <div class="cv-ai-inputs">
+                    <input type="text" id="cvSkillInput" placeholder="مثال: مصمم UI/UX مبتدئ يتقن Figma">
+                    <button id="generateSummaryBtn" class="btn-primary">توليد الملخص</button>
+                </div>
+
+                <div id="cvSummaryResult" class="cv-summary-output" style="display: none;"></div>
+                <div class="section-image-box">
+    <img src="../assets/cv-preview.png" alt="معاينة السيرة الذاتية">
+</div>
+            </div>
+        </section>
+    </main>
+    <footer><p>© 2026 جميع الحقوق محفوظة - منصة career start</p></footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإنترفيو | Career Start</title>
+    <link rel="stylesheet" href="../css/interview.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <script src="../js/interview.js" defer></script>
+</head>
+<body>
+    <div class="bg-decorations"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div><div class="grid-overlay"></div></div>
+    <div class="tech-bg-grid"></div><div class="glow-orb orb-top-left"></div><div class="glow-orb orb-bottom-right"></div>
+<header class="navbar">
+        <div class="logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Career Start<span>AI</span></a></div>
+        <nav>
+            <a href="../index.html">الرئيسية</a>
+            <a href="quiz.html">تحديد المسار</a>
+            <a href="cv-guide.html">دليل السيرة الذاتية</a>
+            <a href="cv-analyzer.html">تحليل السيرة الذاتية</a>
+            <a href="interview.html">الإنترفيو</a>
+            <a href="roadmaps.html">خريطة المجالات</a>
+        </nav>
+    </header>
+    <main>
+        <section id="interview" class="interview-section">
+            <div class="section-title">
+                <h2>استعدادات ومقابلات العمل (Interview Prep)</h2>
+                <p>تدرّب على أشهر أسئلة مقابلات العمل وكيفية الإجابة عليها بثقة</p>
+            </div>
+
+            <div class="interview-box">
+                <div class="interview-tabs">
+                    <button class="tab-btn active" onclick="showInterviewCategory('hr')">أسئلة HR العامة</button>
+                    <button class="tab-btn" onclick="showInterviewCategory('tech')">أسئلة تقنية (Technical)</button>
+                </div>
+
+                <div id="hr-questions" class="questions-content">
+                    <div class="faq-item">
+                        <h4>❓ اتكلم عن نفسك؟ (Tell me about yourself)</h4>
+                        <p><strong>الإجابة النموذجية:</strong> ابدأ برخص مختصر عن خلفيتك الأكاديمية، أهم المهارات والمشاريع اللي اشتغلت عليها، وليه مهتم بالفرصة دي بالذات (تجنب الحكي عن حياتك الشخصية).</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>❓ إيه هي نقاط ضعفك؟</h4>
+                        <p><strong>الإجابة النموذجية:</strong> اذكر نقطة ضعف حقيقية لكن بتسعى لتحسينها حالياً (مثلاً: "كنت بتوتر في العروض التقديمية، وبدأت أتدرب وأمارس قدام زمايلي لتجاوز ده").</p>
+                    </div>
+                </div>
+                    <div class="section-image-box">
+    <img src="../assets/interview-prep.png" alt="تحضير المقابلات">
+</div>
+                <div id="tech-questions" class="questions-content" style="display: none;">
+                    <div class="faq-item">
+                        <h4>🎨 (UI/UX) إيه الفرق بين UI و UX؟</h4>
+                        <p><strong>الإجابة النموذجية:</strong> الـ UX يركز على تجربة المستخدم وسهولة الاستخدام ورحلة الطالب داخل النظام، بينما الـ UI يركز على الواجهة البصرية والألوان والخطوط والشكل المباشر.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>💻 (Programming) إيه هو مفهوم الـ Responsive Design؟</h4>
+                        <p><strong>الإجابة النموذجية:</strong> تصميم وتطوير الموقع بحيث يتكيف شكله وحجمه تلقائياً مع مختلف أجهزة وشاشات المستخدمين (موبايل، تابلت، شاشة كمبيوتر).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer><p>© 2026 جميع الحقوق محفوظة - منصة career start</p></footer>
+</body>
+</html>
