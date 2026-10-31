@@ -1,3 +1,4 @@
+chore/project-setup
 # Career Start project context
 
 ## Project
@@ -31,3 +32,14 @@ Career Start is a university graduation project: a Graduate Support Platform for
 - Work on a feature branch; never make project changes directly on `main`.
 - Explain changes after each task in 3–4 lines.
 - Ask the project owner before making assumptions about missing requirements or behavior.
+
+# Project: Graduate Support Platform (demo, 2 weeks)
+Stack: Next.js (App Router), Tailwind, Supabase, Gemini API
+Rules:
+- Only edit files in your own feature folder unless told otherwise
+- Shared components live in components/ui, ask before changing them
+- No new libraries without team approval
+- Gemini and Supabase service keys only in server routes, never in client code
+- Always handle loading and error states
+- Data (roadmaps, questions) lives in /data as JSON
+ main
