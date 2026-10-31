@@ -1,0 +1,59 @@
+/* قسم الإنترفيو */
+.interview-section {
+    padding: 4rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.interview-box {
+    background-color: #1a264a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.interview-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.8rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    color: #38bdf8;
+    background-color: #0f172a;
+}
+
+.faq-item {
+    background-color: #0f172a;
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-right: 3px solid #2563eb;
+}
+
+.faq-item h4 {
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}

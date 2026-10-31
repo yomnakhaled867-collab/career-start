@@ -1,0 +1,105 @@
+/* 3. كارت الاستمارة العائم */
+.assessment-section {
+    max-width: 750px;
+    margin: -2.5rem auto 3rem auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.career-form {
+    background-color: #1a264a;
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.assessment-section h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+
+.assessment-section p {
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    font-size: 0.88rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #38bdf8;
+}
+
+.form-group option {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* 4. كارت النتيجة */
+.results-container {
+    margin-top: 1.8rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #2563eb;
+    color: #1e293b;
+}
+
+.results-container h3 {
+    color: #0f172a;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+

@@ -1,0 +1,47 @@
+/* أداة الـ AI للملخص */
+.cv-ai-box {
+    background-color: #111c3a;
+    border: 1px solid #2563eb;
+    border-radius: 12px;
+    padding: 2rem;
+    color: #ffffff;
+}
+
+.cv-ai-box h3 {
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+
+.cv-ai-box p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+}
+
+.cv-ai-inputs {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cv-ai-inputs input {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.8rem 1rem;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    color: #ffffff;
+    outline: none;
+}
+
+.cv-summary-output {
+    margin-top: 1.2rem;
+    background-color: #0f172a;
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    border-right: 4px solid #38bdf8;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحديد المسار | Career Start</title>
+    <link rel="stylesheet" href="../css/quiz.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <script src="../js/quiz.js" defer></script>
+</head>
+<body>
+    <div class="bg-decorations"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div><div class="grid-overlay"></div></div>
+    <div class="tech-bg-grid"></div><div class="glow-orb orb-top-left"></div><div class="glow-orb orb-bottom-right"></div>
+<header class="navbar">
+        <div class="logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Career Start<span>AI</span></a></div>
+        <nav>
+            <a href="../index.html">الرئيسية</a>
+            <a href="quiz.html">تحديد المسار</a>
+            <a href="cv-guide.html">دليل السيرة الذاتية</a>
+            <a href="cv-analyzer.html">تحليل السيرة الذاتية</a>
+            <a href="interview.html">الإنترفيو</a>
+            <a href="roadmaps.html">خريطة المجالات</a>
+        </nav>
+    </header>
+    <main>
+        <section id="assessment" class="assessment-section">
+            <h2>استمارة تحديد المسار الوظيفي</h2>
+            <p>ادخل بياناتك واهتماماتك للحصول على توصيات مخصصة لك:</p>
+
+            <form id="careerForm" class="career-form">
+                <div class="form-group">
+                    <label for="fullName">الاسم الأول:</label>
+                    <input type="text" id="fullName" placeholder="مثال: ياسمين" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="governorate">المحافظة:</label>
+                    <select id="governorate" required>
+                        <option value="">اختر محافظتك...</option>
+                        <option value="دمياط">دمياط</option>
+                        <option value="القاهرة">القاهرة</option>
+                        <option value="الإسكندرية">الإسكندرية</option>
+                        <option value="الدقهلية">الدقهلية</option>
+                        <option>الشرقية</option>
+                        <option>الوادي الجديد</option>
+                        <option>بورسعيد</option>
+                        <option>السويس</option>
+                        <option>البحر الأحمر</option>
+                        <option>الجيزة</option>
+                        <option>بني سويف</option>
+                        <option>أسوان</option>
+                        <option>شمال سيناء</option>
+                        <option value="أخرى">محافظة أخرى</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="workEnv">بيئة العمل المفضلة:</label>
+                    <select id="workEnv" required>
+                        <option value="remote">عمل حر / عن بُعد (Remote)</option>
+                        <option value="onsite">من مقر الشركة (On-site)</option>
+                        <option value="hybrid">هجين (Hybrid)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobType">نوع دوام العمل:</label>
+                    <select id="jobType" required>
+                        <option value="full-time">دوام كامل (Full-time)</option>
+                        <option value="part-time">دوام جزئي (Part-time)</option>
+                        <option value="freelance">(Freelance)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">المجال / الاهتمام الرئيسي:</label>
+                    <select id="interest" required>
+                        <option value="ui-ux">تصميم واجهات المستخدم (UI/UX)</option>
+                        <option value="programming">تطوير البرمجيات والويب (Programming)</option>
+                        <option value="graphic">التصميم الجرافيكي (Graphic Design)</option>
+                        <option value="qa">جودة البرمجيات (Software QA)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">عرض التوصيات المخصصة ✨</button>
+            </form>
+
+            <!-- مكان ظهور التوصيات -->
+            <div id="results" class="results-container" style="display: none;">
+                <h3>توصيات مسارك المهني:</h3>
+                <div id="recommendationsOutput"></div>
+            </div>
+            <div class="section-image-box">
+    <img src="../assets/path-icon.png" alt="تحديد المسار المهني">
+</div>
+        </section>
+    </main>
+    <footer><p>© 2026 جميع الحقوق محفوظة - منصة career start</p></footer>
+</body>
+</html>
