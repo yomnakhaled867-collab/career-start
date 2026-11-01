@@ -3,62 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خريطة المجالات | Career Start</title>
+    <meta name="theme-color" content="#081321">
+    <title>خرائط التعلّم | Career Start</title>
     <link rel="stylesheet" href="../css/roadmaps.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/base.css">
     <script src="../js/roadmaps.js" defer></script>
 </head>
 <body>
-    <div class="bg-decorations"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div><div class="grid-overlay"></div></div>
-    <div class="tech-bg-grid"></div><div class="glow-orb orb-top-left"></div><div class="glow-orb orb-bottom-right"></div>
-<header class="navbar">
+    <div class="bg-decorations" aria-hidden="true"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div><div class="grid-overlay"></div></div>
+    <div class="tech-bg-grid" aria-hidden="true"></div>
+    <header class="navbar">
         <div class="logo"><a href="../index.html" style="color: inherit; text-decoration: none;">Career Start<span>AI</span></a></div>
-        <nav>
+        <nav aria-label="التنقل الرئيسي">
             <a href="../index.html">الرئيسية</a>
             <a href="quiz.html">تحديد المسار</a>
             <a href="cv-guide.html">دليل السيرة الذاتية</a>
             <a href="cv-analyzer.html">تحليل السيرة الذاتية</a>
             <a href="interview.html">الإنترفيو</a>
-            <a href="roadmaps.html">خريطة المجالات</a>
+            <a href="roadmaps.html" aria-current="page">خرائط التعلّم</a>
         </nav>
     </header>
-    <main>
-        <section id="fields-videos" class="section-container">
-            <div class="section-title">
-                <h2>خريطةالمجالات</h2>
-                <p>استكشف فيديوهات تعريفية سريعة ومصممة بالـ AI لأشهر المجالات المطلوبة</p>
-            </div>
-
-            <div class="videos-grid">
-                <div class="video-card">
-                    <video controls poster="../assets/uiux-thumb.jpg">
-                        <source src="../assets/uiux-guide.mp4" type="video/mp4">
-                    </video>
-                    <h3>تصميم الواجهات (UI/UX)</h3>
-                </div>
-
-                <div class="video-card">
-                    <video controls poster="../assets/programming-thumb.jpg">
-                        <source src="../assets/programming-guide.mp4" type="video/mp4">
-                    </video>
-                    <h3>البرمجة والتطوير (Programming)</h3>
-                </div>
-
-                <div class="video-card">
-                    <video controls poster="../assets/graphic-thumb.jpg">
-                        <source src="../assets/graphic-guide.mp4" type="video/mp4">
-                    </video>
-                    <h3>التصميم الجرافيكي (Graphic Design)</h3>
-                </div>
-
-                <div class="video-card">
-                    <video controls poster="../assets/qa-thumb.jpg">
-                        <source src="../assets/qa-guide.mp4" type="video/mp4">
-                    </video>
-                    <h3>جودة البرمجيات (Software QA)</h3>
-                </div>
-            </div>
+    <main class="roadmaps-page">
+        <section class="roadmaps-hero" aria-labelledby="roadmaps-title">
+            <span class="roadmaps-eyebrow">خطوتك التالية تبدأ هنا</span>
+            <h1 id="roadmaps-title">خريطة تعلّمك للمجال</h1>
+            <p>مسارات عملية مرتبة من الأساسيات إلى أول مشروع. اختر مجالاً، وتابع تقدمك مرحلةً بمرحلة.</p>
+        </section>
+        <section class="roadmaps-content" aria-label="خرائط المجالات">
+            <div id="fieldTabs" class="field-tabs" role="tablist" aria-label="اختر المجال" hidden></div>
+            <div id="roadmapStatus" class="roadmap-status" role="status" aria-live="polite">جارٍ تحميل خرائط التعلّم…</div>
+            <div id="roadmapPanel" class="roadmap-panel" hidden></div>
         </section>
     </main>
     <footer><p>© 2026 جميع الحقوق محفوظة - منصة career start</p></footer>
