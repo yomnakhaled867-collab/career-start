@@ -173,8 +173,8 @@
 
             <!-- أداة توليد ملخص CV سريع بالـ AI -->
             <div class="cv-ai-box">
-                <h3>✨ مثال جاهز لملخص الـ CV</h3>
-                <p>اكتب تخصصك أو مهاراتك لإظهار نموذج ثابت يمكنك تعديله بنفسك:</p>
+                <h3>✨ مولّد ملخص الـ CV بالذكاء الاصطناعي</h3>
+                <p>اكتب تخصصك والمهارة الأساسية عندك، وسيقوم النظام بصياغة ملخص مهني احترافي لك:</p>
                 
                 <div class="cv-ai-inputs">
                     <input type="text" id="cvSkillInput" placeholder="مثال: مصمم UI/UX مبتدئ يتقن Figma">
@@ -183,19 +183,27 @@
 
                 <div id="cvSummaryResult" class="cv-summary-output" style="display: none;"></div>
                 <div class="cv-analyzer-heading">
-                    <span class="cv-eyebrow">مراجعة محلية على جهازك</span>
+                    <span class="cv-eyebrow">مراجعة ذكية ومخصصة</span>
                     <h3>حلّل سيرتك الذاتية</h3>
-                    <p>الصق نص السيرة واختر المجال للحصول على تقييم إرشادي. لا نستخدم API ولا نرسل النص إلى خادم.</p>
+                    <p>ارفع ملف سيرتك أو الصق النص، واختر المجال الذي تستهدفه للحصول على تقييم عملي بالعربية.</p>
                 </div>
                 <form id="cvAnalyzerForm" novalidate>
                     <label for="cvTargetField">المجال المستهدف</label>
                     <select id="cvTargetField" name="targetField" required>
-                        <option value="programming">البرمجة</option>
-                        <option value="uiux">تصميم UI/UX</option>
-                        <option value="graphic">التصميم الجرافيكي</option>
+                        <option value="Programming">البرمجة</option>
+                        <option value="UI-UX">تصميم UI/UX</option>
+                        <option value="Graphic Design">التصميم الجرافيكي</option>
                     </select>
-                    <label for="cvTextInput">الصق نص السيرة الذاتية</label>
-                    <p class="cv-privacy-note">افتح ملفك وانسخ نصه هنا؛ التحليل يعمل محلياً ولا يقرأ PDF أو الصور تلقائياً.</p>
+                    <label for="cvFileInput">ملف السيرة الذاتية (PDF أو PNG أو JPG، حتى 3 ميجابايت)</label>
+                    <div id="cvUploadArea" class="cv-upload-area" tabindex="0" role="button" aria-controls="cvFileInput" aria-label="اختر ملف السيرة الذاتية أو اسحبه هنا">
+                        <span class="cv-upload-icon" aria-hidden="true">⇧</span>
+                        <strong>اسحب الملف وأفلته هنا</strong><span>أو</span>
+                        <button id="cvChooseFile" class="cv-choose-file" type="button">اختر ملفاً</button>
+                        <input id="cvFileInput" type="file" accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg" hidden>
+                        <div id="cvSelectedFile" class="cv-selected-file" hidden><span id="cvFileDetails"></span><button id="cvRemoveFile" type="button" aria-label="إزالة الملف">إزالة</button></div>
+                    </div>
+                    <p class="cv-privacy-note">لحماية خصوصيتك، لا ترفع معلومات حساسة مثل أرقام الهوية أو بيانات الحسابات.</p>
+                    <label for="cvTextInput">أو الصق نص السيرة الذاتية</label>
                     <textarea id="cvTextInput" name="cvText" rows="9" maxlength="6000" placeholder="الصق هنا الخبرات، التعليم، المشاريع، والمهارات..."></textarea>
                     <div class="cv-form-meta"><span id="cvCharCount">0 / 6000</span><span>لا تضع معلومات حساسة لا تحتاج إلى تقييمها.</span></div>
                     <div id="cvFormMessage" class="cv-form-message" role="status" aria-live="polite" hidden></div>
