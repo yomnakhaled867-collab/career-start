@@ -31,6 +31,7 @@
             <a href="#home">الرئيسية</a>
             <a href="#assessment">تحديد المسار</a>
             <a href="#cv-builder">السيرة الذاتية</a>
+            <a href="pages/cv-builder.html">إنشاء CV</a>
             <a href="#interview">الإنترفيو</a>
             <a href="#fields-videos">خريطة المجالات</a>
             <a href="#faq">الأسئلة الشائعة</a>
@@ -181,6 +182,34 @@
                 </div>
 
                 <div id="cvSummaryResult" class="cv-summary-output" style="display: none;"></div>
+                <div class="cv-analyzer-heading">
+                    <span class="cv-eyebrow">مراجعة ذكية ومخصصة</span>
+                    <h3>حلّل سيرتك الذاتية</h3>
+                    <p>ارفع ملف سيرتك أو الصق النص، واختر المجال الذي تستهدفه للحصول على تقييم عملي بالعربية.</p>
+                </div>
+                <form id="cvAnalyzerForm" novalidate>
+                    <label for="cvTargetField">المجال المستهدف</label>
+                    <select id="cvTargetField" name="targetField" required>
+                        <option value="Programming">البرمجة</option>
+                        <option value="UI-UX">تصميم UI/UX</option>
+                        <option value="Graphic Design">التصميم الجرافيكي</option>
+                    </select>
+                    <label for="cvFileInput">ملف السيرة الذاتية (PDF أو PNG أو JPG، حتى 3 ميجابايت)</label>
+                    <div id="cvUploadArea" class="cv-upload-area" tabindex="0" role="button" aria-controls="cvFileInput" aria-label="اختر ملف السيرة الذاتية أو اسحبه هنا">
+                        <span class="cv-upload-icon" aria-hidden="true">⇧</span>
+                        <strong>اسحب الملف وأفلته هنا</strong><span>أو</span>
+                        <button id="cvChooseFile" class="cv-choose-file" type="button">اختر ملفاً</button>
+                        <input id="cvFileInput" type="file" accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg" hidden>
+                        <div id="cvSelectedFile" class="cv-selected-file" hidden><span id="cvFileDetails"></span><button id="cvRemoveFile" type="button" aria-label="إزالة الملف">إزالة</button></div>
+                    </div>
+                    <p class="cv-privacy-note">لحماية خصوصيتك، لا ترفع معلومات حساسة مثل أرقام الهوية أو بيانات الحسابات.</p>
+                    <label for="cvTextInput">أو الصق نص السيرة الذاتية</label>
+                    <textarea id="cvTextInput" name="cvText" rows="9" maxlength="6000" placeholder="الصق هنا الخبرات، التعليم، المشاريع، والمهارات..."></textarea>
+                    <div class="cv-form-meta"><span id="cvCharCount">0 / 6000</span><span>لا تضع معلومات حساسة لا تحتاج إلى تقييمها.</span></div>
+                    <div id="cvFormMessage" class="cv-form-message" role="status" aria-live="polite" hidden></div>
+                    <button id="analyzeCvBtn" class="btn-primary" type="submit"><span class="cv-button-label">حلّل سيرتي الذاتية</span><span class="cv-spinner" aria-hidden="true"></span></button>
+                </form>
+                <section id="cvAnalysisResult" class="cv-analysis-result" aria-live="polite" hidden></section>
                 <div class="section-image-box">
     <img src="assets/cv-preview.png" alt="معاينة السيرة الذاتية">
 </div>
