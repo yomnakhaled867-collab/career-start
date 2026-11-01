@@ -103,6 +103,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!form) return;
 
     const cvInput = document.getElementById('cvTextInput');
+    try {
+        const builderCv = sessionStorage.getItem('careerStartBuilderCv');
+        if (builderCv) {
+            cvInput.value = builderCv;
+            sessionStorage.removeItem('careerStartBuilderCv');
+            document.getElementById('cvCharCount').textContent = `${builderCv.length} / 6000`;
+        }
+    } catch (_) { /* Storage may be unavailable in private browsing. */ }
     const targetInput = document.getElementById('cvTargetField');
     const count = document.getElementById('cvCharCount');
     const button = document.getElementById('analyzeCvBtn');
