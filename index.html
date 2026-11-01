@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>career start | منصة دعم الخريجين الجدد</title>
@@ -23,17 +22,16 @@
 
     <!-- الهيدر وقائمة التنقل -->
     <header class="navbar">
-        <a href="#" class="logo">
-            <div class="logo"> Career Start<span> AI</span></div>
-            <img src="assets/logo.png" alt="Logo">
+        <a href="index.html" class="brand-link" aria-label="Career Start — الرئيسية">
+            <img src="assets/logo.png" alt="">
+            <span>Career Start <strong>AI</strong></span>
         </a>
-        <nav>
-            <a href="#home">الرئيسية</a>
-            <a href="#assessment">تحديد المسار</a>
-            <a href="#cv-builder">السيرة الذاتية</a>
+        <nav aria-label="التنقل الرئيسي">
+            <a href="pages/quiz.html">تحديد المسار</a>
+            <a href="pages/roadmaps.html">خرائط التعلّم</a>
+            <a href="#cv-analyzer">تحليل CV</a>
             <a href="pages/cv-builder.html">إنشاء CV</a>
-            <a href="#interview">الإنترفيو</a>
-            <a href="#fields-videos">خريطة المجالات</a>
+            <a href="pages/interview.html">الإنترفيو</a>
             <a href="#faq">الأسئلة الشائعة</a>
             <a href="#feedback-section">تقييم المنصة</a>
         </nav>
@@ -54,7 +52,7 @@
                 <span class="badge">دليلك الذكي لسوق العمل ✦</span>
                 <h1>ابني مستقبلك المهني بذكاء وبخطوات ثابتة</h1>
                 <p>منصة متكاملة لحديثي التخرج لمساعدتك في تحديد مسارك المفضل، اكتساب المهارات، وتجهيز الـ CV والإنترفيو.</p>
-                <a href="#assessment" class="btn-primary">ابدأ تحديد مسارك الآن</a>
+                <a href="pages/quiz.html" class="btn-primary">ابدأ من هنا · Start here</a>
             </div>
 
             <!-- مكان الفيديو التعريفي -->
@@ -68,77 +66,12 @@
             </div>
         </section>
 
-        <!-- استمارة تحديد المسار الوظيفي -->
-        <section id="assessment" class="assessment-section">
-            <h2>استمارة تحديد المسار الوظيفي</h2>
-            <p>ادخل بياناتك واهتماماتك للحصول على توصيات مخصصة لك:</p>
-
-            <form id="careerForm" class="career-form">
-                <div class="form-group">
-                    <label for="fullName">الاسم الأول:</label>
-                    <input type="text" id="fullName" placeholder="مثال: ياسمين" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="governorate">المحافظة:</label>
-                    <select id="governorate" required>
-                        <option value="">اختر محافظتك...</option>
-                        <option value="دمياط">دمياط</option>
-                        <option value="القاهرة">القاهرة</option>
-                        <option value="الإسكندرية">الإسكندرية</option>
-                        <option value="الدقهلية">الدقهلية</option>
-                        <option>الشرقية</option>
-                        <option>الوادي الجديد</option>
-                        <option>بورسعيد</option>
-                        <option>السويس</option>
-                        <option>البحر الأحمر</option>
-                        <option>الجيزة</option>
-                        <option>بني سويف</option>
-                        <option>أسوان</option>
-                        <option>شمال سيناء</option>
-                        <option value="أخرى">محافظة أخرى</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="workEnv">بيئة العمل المفضلة:</label>
-                    <select id="workEnv" required>
-                        <option value="remote">عمل حر / عن بُعد (Remote)</option>
-                        <option value="onsite">من مقر الشركة (On-site)</option>
-                        <option value="hybrid">هجين (Hybrid)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="jobType">نوع دوام العمل:</label>
-                    <select id="jobType" required>
-                        <option value="full-time">دوام كامل (Full-time)</option>
-                        <option value="part-time">دوام جزئي (Part-time)</option>
-                        <option value="freelance">(Freelance)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="interest">المجال / الاهتمام الرئيسي:</label>
-                    <select id="interest" required>
-                        <option value="ui-ux">تصميم واجهات المستخدم (UI/UX)</option>
-                        <option value="programming">تطوير البرمجيات والويب (Programming)</option>
-                        <option value="graphic">التصميم الجرافيكي (Graphic Design)</option>
-                        <option value="qa">جودة البرمجيات (Software QA)</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn-submit">عرض التوصيات المخصصة ✨</button>
-            </form>
-
-            <!-- مكان ظهور التوصيات -->
-            <div id="results" class="results-container" style="display: none;">
-                <h3>توصيات مسارك المهني:</h3>
-                <div id="recommendationsOutput"></div>
+        <section class="landing-feature-card" aria-labelledby="quiz-promo-title">
+            <img src="assets/path-icon.png" alt="">
+            <div><span class="feature-kicker">ابدأ رحلتك</span><h2 id="quiz-promo-title">اكتشف المجال الأقرب لاهتماماتك</h2>
+                <p>أجب عن أسئلة تحديد المسار، ثم تابع إلى خريطة التعلّم المناسبة لك.</p>
+                <a class="btn-primary" href="pages/quiz.html">ابدأ اختبار المسار</a>
             </div>
-            <div class="section-image-box">
-    <img src="assets/path-icon.png" alt="تحديد المسار المهني">
-</div>
         </section>
         <!-- قسم السيرة الذاتية (CV Builder & Tips) -->
         <section id="cv-builder" class="cv-section">
@@ -171,18 +104,11 @@
                 </div>
             </div>
 
-            <!-- أداة توليد ملخص CV سريع بالـ AI -->
             <div class="cv-ai-box">
-                <h3>✨ مولّد ملخص الـ CV بالذكاء الاصطناعي</h3>
-                <p>اكتب تخصصك والمهارة الأساسية عندك، وسيقوم النظام بصياغة ملخص مهني احترافي لك:</p>
-                
-                <div class="cv-ai-inputs">
-                    <input type="text" id="cvSkillInput" placeholder="مثال: مصمم UI/UX مبتدئ يتقن Figma">
-                    <button id="generateSummaryBtn" class="btn-primary">توليد الملخص</button>
-                </div>
-
-                <div id="cvSummaryResult" class="cv-summary-output" style="display: none;"></div>
-                <div class="cv-analyzer-heading">
+                <h3>أنشئ سيرتك الذاتية</h3>
+                <p>استخدم منشئ السيرة الذاتية لإدخال بياناتك ومعاينة التنسيق وطباعته كملف PDF.</p>
+                <a class="btn-primary" href="pages/cv-builder.html">افتح منشئ CV</a>
+                <div id="cv-analyzer" class="cv-analyzer-heading">
                     <span class="cv-eyebrow">مراجعة ذكية ومخصصة</span>
                     <h3>حلّل سيرتك الذاتية</h3>
                     <p>ارفع ملف سيرتك أو الصق النص، واختر المجال الذي تستهدفه للحصول على تقييم عملي بالعربية.</p>
@@ -215,132 +141,20 @@
 </div>
             </div>
         </section>
-        <!-- قسم تحضير الإنترفيو (Interview Prep) -->
-        <section id="interview" class="interview-section">
-            <div class="section-title">
-                <h2>استعدادات ومقابلات العمل (Interview Prep)</h2>
-                <p>تدرّب على أشهر أسئلة مقابلات العمل وكيفية الإجابة عليها بثقة</p>
-            </div>
-
-            <div class="interview-box">
-                <div class="interview-tabs">
-                    <button class="tab-btn active" onclick="showInterviewCategory('hr')">أسئلة HR العامة</button>
-                    <button class="tab-btn" onclick="showInterviewCategory('tech')">أسئلة تقنية (Technical)</button>
-                </div>
-
-                <div id="hr-questions" class="questions-content">
-                    <div class="faq-item">
-                        <h4>❓ اتكلم عن نفسك؟ (Tell me about yourself)</h4>
-                        <p><strong>الإجابة النموذجية:</strong> ابدأ برخص مختصر عن خلفيتك الأكاديمية، أهم المهارات والمشاريع اللي اشتغلت عليها، وليه مهتم بالفرصة دي بالذات (تجنب الحكي عن حياتك الشخصية).</p>
-                    </div>
-                    <div class="faq-item">
-                        <h4>❓ إيه هي نقاط ضعفك؟</h4>
-                        <p><strong>الإجابة النموذجية:</strong> اذكر نقطة ضعف حقيقية لكن بتسعى لتحسينها حالياً (مثلاً: "كنت بتوتر في العروض التقديمية، وبدأت أتدرب وأمارس قدام زمايلي لتجاوز ده").</p>
-                    </div>
-                </div>
-                    <div class="section-image-box">
-    <img src="assets/interview-prep.png" alt="تحضير المقابلات">
-</div>
-                <div id="tech-questions" class="questions-content" style="display: none;">
-                    <div class="faq-item">
-                        <h4>🎨 (UI/UX) إيه الفرق بين UI و UX؟</h4>
-                        <p><strong>الإجابة النموذجية:</strong> الـ UX يركز على تجربة المستخدم وسهولة الاستخدام ورحلة الطالب داخل النظام، بينما الـ UI يركز على الواجهة البصرية والألوان والخطوط والشكل المباشر.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h4>💻 (Programming) إيه هو مفهوم الـ Responsive Design؟</h4>
-                        <p><strong>الإجابة النموذجية:</strong> تصميم وتطوير الموقع بحيث يتكيف شكله وحجمه تلقائياً مع مختلف أجهزة وشاشات المستخدمين (موبايل، تابلت، شاشة كمبيوتر).</p>
-                    </div>
-                </div>
+        <section id="interview" class="landing-feature-card" aria-labelledby="interview-promo-title">
+            <img src="assets/interview-prep.png" alt="">
+            <div><span class="feature-kicker">تدريب عملي</span><h2 id="interview-promo-title">استعد لمقابلتك القادمة</h2>
+                <p>افتح صفحة المقابلات لاستعراض الأسئلة والتدرّب على إجاباتك.</p>
+                <a class="btn-primary" href="pages/interview.html">افتح تدريب المقابلة</a>
             </div>
         </section>
-        <!-- قسم معرض الوسائط التفاعلية (Media Gallery Section) -->
-        <section id="media-gallery" class="media-section">
-            <div class="section-title">
-                <h2>معرض الوسائط والنصائح السريعة</h2>
-                <p>شاهد مقاطع قصيرة وصوراً توضيحية مُولّدة بالذكاء الاصطناعي لتبسيط رحلتك المهنية</p>
-            </div>
 
-            <div class="pinterest-grid">
-                
-                <!-- كارت 1: فيديو نصيحة المقابلة -->
-                <div class="media-card video-card">
-                    <div class="media-wrapper">
-                        <video controls poster="assets/interview-thumb.jpg">
-                            <source src="assets/interview-tips.mp4" type="video/mp4">
-                            متصفحك لا يدعم تشغيل الفيديو.
-                        </video>
-                        <span class="media-type-tag">فيديو AI</span>
-                    </div>
-                    <div class="card-info">
-                        <h3>كيف تجيب على سؤال "تحدث عن نفسك"؟</h3>
-                        <p>شرح سريع في 30 ثانية باستخدام متحدث افتراضي من HeyGen.</p>
-                    </div>
-                </div>
-
-                <!-- كارت 2: صورة قبل وبعد الـ CV -->
-                <div class="media-card image-card">
-                    <div class="media-wrapper">
-                        <img src="assets/cv-comparison.png" alt="مقارنة الـ CV">
-                        <span class="media-type-tag image-tag">صورة توضيحية</span>
-                    </div>
-                    <div class="card-info">
-                        <h3>كيف يكون الCV الاحترافي؟</h3>
-                        <p>تصميم مقارب تم استخراجه وتنسيقه بذكاء باستخدام ChatGPT & Midjourney.</p>
-                    </div>
-                </div>
-
-                <!-- كارت 4: صورة المستشارين الافتراضيين -->
-                <div class="card media-card">
-    <div class="card-media">
-        <video controls poster="assets/interview-prep.png">
-            <source src="assets/interview-guide.mp4" type="video/mp4">
-            متصفحك لا يدعم تشغيل الفيديو.
-        </video>
-        <span class="badge">فيديو AI</span>
-    </div>
-    <div class="card-content">
-        <h3>محاكاة مقابلة عمل: الردود الصحيحة والخاطئة:</h3>
-        <p> أهم الأسئلة في المقابلات وكيف تجيب عنها بالرد الصحيح والخطأ لتضمن قبولك في الشركات.</p>
-    </div>
-</div>
-
-            </div>
-        </section>
-        <!-- قسم خارطة المجالات -->
-        <section id="fields-videos" class="section-container">
-            <div class="section-title">
-                <h2>خريطةالمجالات</h2>
-                <p>استكشف فيديوهات تعريفية سريعة ومصممة بالـ AI لأشهر المجالات المطلوبة</p>
-            </div>
-
-            <div class="videos-grid">
-                <div class="video-card">
-                    <video controls poster="assets/uiux-thumb.jpg">
-                        <source src="assets/uiux-guide.mp4" type="video/mp4">
-                    </video>
-                    <h3>تصميم الواجهات (UI/UX)</h3>
-                </div>
-
-                <div class="video-card">
-                    <video controls poster="assets/programming-thumb.jpg">
-                        <source src="assets/programming-guide.mp4" type="video/mp4">
-                    </video>
-                    <h3>البرمجة والتطوير (Programming)</h3>
-                </div>
-
-                <div class="video-card">
-                    <video controls poster="assets/graphic-thumb.jpg">
-                        <source src="assets/graphic-guide.mp4" type="video/mp4">
-                    </video>
-                    <h3>التصميم الجرافيكي (Graphic Design)</h3>
-                </div>
-
-                <div class="video-card">
-                    <video controls poster="assets/qa-thumb.jpg">
-                        <source src="assets/qa-guide.mp4" type="video/mp4">
-                    </video>
-                    <h3>جودة البرمجيات (Software QA)</h3>
-                </div>
+        <section id="fields-videos" class="field-map-section" aria-labelledby="field-map-title">
+            <div class="section-title"><h2 id="field-map-title">اختر خريطة التعلّم</h2><p>ابدأ مساراً منظماً في أحد المجالات المتاحة.</p></div>
+            <div class="field-map-grid">
+                <a href="pages/roadmaps.html" class="field-map-card"><img src="assets/programming-thumb.jpg" alt=""><span>البرمجة وتطوير الويب</span><b>عرض الخريطة ←</b></a>
+                <a href="pages/roadmaps.html" class="field-map-card"><img src="assets/uiux-thumb.jpg" alt=""><span>تصميم UI/UX</span><b>عرض الخريطة ←</b></a>
+                <a href="pages/roadmaps.html" class="field-map-card"><img src="assets/graphic-thumb.jpg" alt=""><span>التصميم الجرافيكي</span><b>عرض الخريطة ←</b></a>
             </div>
         </section>
 
@@ -387,21 +201,25 @@
         <!-- قسم تقييم المنصة -->
         <section id="feedback-section" class="section-container">
             <div class="section-title">
-                <h2> رأيكم يهمنا في Career Start</h2>
-                <p>شاركونا تقييمكم للمنصة لمساعدتنا في تطويرها وتحديث الأدوات باستمرار</p>
+                <h2>رأيكم يهمنا في Career Start</h2>
+                <p>يمكنك حفظ تقييمك محلياً لمراجعته لاحقاً. لن يتم إرساله إلى فريق المنصة.</p>
             </div>
 
-            <div class="rating-box">
-                <div class="stars-rating">
-                    <span class="star" data-value="1" onclick="setRating(1)">★</span>
-                    <span class="star" data-value="2" onclick="setRating(2)">★</span>
-                    <span class="star" data-value="3" onclick="setRating(3)">★</span>
-                    <span class="star" data-value="4" onclick="setRating(4)">★</span>
-                    <span class="star" data-value="5" onclick="setRating(5)">★</span>
-                </div>
-                <textarea id="feedbackText" placeholder="اكتب انطباعك أو اقتراحاتك لتطوير المنصة..."></textarea>
-                <button class="btn-primary" onclick="submitFeedback()">إرسال التقييم</button>
-            </div>
+            <form id="feedbackForm" class="rating-box">
+                <fieldset class="rating-fieldset"><legend>تقييمك للمنصة</legend>
+                    <div class="stars-rating" role="radiogroup" aria-label="اختر تقييماً من نجمة إلى خمس نجوم">
+                        <label><input type="radio" name="rating" value="1" required><span aria-hidden="true">★</span><span class="sr-only">نجمة واحدة</span></label>
+                        <label><input type="radio" name="rating" value="2"><span aria-hidden="true">★</span><span class="sr-only">نجمتان</span></label>
+                        <label><input type="radio" name="rating" value="3"><span aria-hidden="true">★</span><span class="sr-only">ثلاث نجوم</span></label>
+                        <label><input type="radio" name="rating" value="4"><span aria-hidden="true">★</span><span class="sr-only">أربع نجوم</span></label>
+                        <label><input type="radio" name="rating" value="5"><span aria-hidden="true">★</span><span class="sr-only">خمس نجوم</span></label>
+                    </div>
+                </fieldset>
+                <label class="sr-only" for="feedbackText">ملاحظتك (اختياري)</label>
+                <textarea id="feedbackText" maxlength="1000" placeholder="ملاحظتك (اختياري)"></textarea>
+                <button class="btn-primary" type="submit">احفظ على هذا الجهاز</button>
+                <p id="feedbackStatus" class="local-save-status" role="status" aria-live="polite"></p>
+            </form>
         </section>
     </main>
 
@@ -410,30 +228,29 @@
     </footer>
 
 <!-- زرار الدعم الفني العائم -->
-<button id="openContactBtn" class="floating-support-btn" title="تواصل مع الدعم الفني">
+<button id="openContactBtn" class="floating-support-btn" type="button" title="حفظ رسالة على هذا الجهاز" aria-label="افتح نموذج حفظ الرسالة على هذا الجهاز">
     💬
 </button>
 
 <!-- النافذة الصغيرة المنبثقة (Modal) -->
-<div id="contactModal" class="modal-overlay">
+<div id="contactModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contactTitle" aria-hidden="true">
     <div class="modal-content">
-        <span id="closeContactBtn" class="modal-close">&times;</span>
-        <h3>تواصل مع فريق الدعم ✉️</h3>
-        <p>اترك استفسارك أو اقتراحك وسنقوم بالرد عليك في أقرب وقت:</p>
+        <button id="closeContactBtn" class="modal-close" type="button" aria-label="إغلاق">&times;</button>
+        <h3 id="contactTitle">احفظ رسالة على هذا الجهاز</h3>
+        <p>هذه نسخة تجريبية: الرسالة ستبقى في هذا المتصفح فقط، ولن تُرسل إلى فريق الدعم.</p>
         
         <form id="contactForm">
-            <input type="text" placeholder="الاسم بالكامل" required>
-            <input type="email" placeholder="البريد الإلكتروني" required>
-            <textarea rows="4" placeholder="اكتب رسالتك هنا..." required></textarea>
-            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+            <label for="contactName">الاسم بالكامل</label><input id="contactName" name="name" type="text" autocomplete="name" required>
+            <label for="contactEmail">البريد الإلكتروني</label><input id="contactEmail" name="email" type="email" autocomplete="email" required>
+            <label for="contactMessage">الرسالة</label><textarea id="contactMessage" name="message" rows="4" required></textarea>
+            <button type="submit" class="submit-btn">احفظ على هذا الجهاز</button>
+            <p id="contactStatus" class="local-save-status" role="status" aria-live="polite"></p>
         </form>
     </div>
 </div>
 
 
     <script src="js/layout.js"></script>
-    <script src="js/quiz.js"></script>
     <script src="js/cv-analyzer.js"></script>
-    <script src="js/interview.js"></script>
 </body>
 </html>
