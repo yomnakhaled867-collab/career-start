@@ -160,20 +160,27 @@
                 </div>
             </div>
 
-            <!-- أداة توليد ملخص CV سريع بالـ AI -->
             <div class="cv-ai-box">
-                <h3>✨ مولّد ملخص الـ CV بالذكاء الاصطناعي</h3>
-                <p>اكتب تخصصك والمهارة الأساسية عندك، وسيقوم النظام بصياغة ملخص مهني احترافي لك:</p>
-                
-                <div class="cv-ai-inputs">
-                    <input type="text" id="cvSkillInput" placeholder="مثال: مصمم UI/UX مبتدئ يتقن Figma">
-                    <button id="generateSummaryBtn" class="btn-primary">توليد الملخص</button>
+                <div class="cv-analyzer-heading">
+                    <span class="cv-eyebrow">مراجعة ذكية ومخصصة</span>
+                    <h3>حلّل سيرتك الذاتية</h3>
+                    <p>الصق نص سيرتك، واختر المجال الذي تستهدفه للحصول على تقييم عملي بالعربية.</p>
                 </div>
-
-                <div id="cvSummaryResult" class="cv-summary-output" style="display: none;"></div>
-                <div class="section-image-box">
-    <img src="assets/cv-preview.png" alt="معاينة السيرة الذاتية">
-</div>
+                <form id="cvAnalyzerForm" novalidate>
+                    <label for="cvTargetField">المجال المستهدف</label>
+                    <select id="cvTargetField" name="targetField" required>
+                        <option value="Programming">البرمجة</option>
+                        <option value="UI-UX">تصميم UI/UX</option>
+                        <option value="Graphic Design">التصميم الجرافيكي</option>
+                    </select>
+                    <label for="cvTextInput">نص السيرة الذاتية</label>
+                    <textarea id="cvTextInput" name="cvText" rows="9" maxlength="6000" required placeholder="الصق هنا الخبرات، التعليم، المشاريع، والمهارات..."></textarea>
+                    <div class="cv-form-meta"><span id="cvCharCount">0 / 6000</span><span>لا تضع معلومات حساسة لا تحتاج إلى تقييمها.</span></div>
+                    <div id="cvFormMessage" class="cv-form-message" role="status" aria-live="polite" hidden></div>
+                    <button id="analyzeCvBtn" class="btn-primary" type="submit"><span class="cv-button-label">حلّل سيرتي الذاتية</span><span class="cv-spinner" aria-hidden="true"></span></button>
+                </form>
+                <section id="cvAnalysisResult" class="cv-analysis-result" aria-live="polite" hidden></section>
+                <div class="section-image-box"><img src="assets/cv-preview.png" alt="معاينة تصميم سيرة ذاتية"></div>
             </div>
         </section>
         <!-- قسم تحضير الإنترفيو (Interview Prep) -->
