@@ -83,11 +83,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
     const listCard = (title, entries, icon) => `<article class="cv-result-card"><h4><span>${icon}</span>${title}</h4>${entries.length ? `<ul>${entries.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<p class="cv-empty-list">لا توجد نقاط محددة.</p>'}</article>`;
-    const renderResult = data => {
+    const localEvaluate = (text, field) => {
+        const normalized = text.toLowerCase();
+        const fieldTerms = {
+            Programming: ['javascript', 'python', 'java', 'sql', 'api', 'github', 'برمجة', 'مشروع'],
+            'UI-UX': ['figma', 'wireframe', 'prototype', 'usability', 'ux', 'ui', 'تصميم', 'واجهة'],
+            'Graphic Design': ['photoshop', 'illustrator', 'branding', 'typography', 'design', 'تصميم', 'هوية', 'ألوان']
+        }[field] || [];
+        const sectionTerms = ['experience', 'education', 'project', 'skill', 'خبرة', 'تعليم', 'مشروع', 'مهارات'];
+        const quantified = /\b\d+\s*%|\b\d+\s*(?:users|clients|projects|months|years|مستخدم|عميل|مشروع|شهر|سنة)/i.test(text);
+        const fieldMatches = fieldTerms.filter(term => normalized.includes(term));
+        const sectionMatches = sectionTerms.filter(term => normalized.includes(term));
+        const score = Math.min(9, Math.max(2, 3 + Math.min(3, sectionMatches.length) + Math.min(2, fieldMatches.length) + (quantified ? 1 : 0)));
+        const strengths = [];
+        if (fieldMatches.length) strengths.push(`يتضمن النص إشارات مرتبطة بمجال ${field} مثل: ${fieldMatches.slice(0, 4).join('، ')}.`);
+        if (sectionMatches.length) strengths.push(`يذكر أقساماً مهمة للسيرة مثل: ${sectionMatches.slice(0, 4).join('، ')}.`);
+        if (quantified) strengths.push('يحتوي على نتائج أو أرقام تساعد على توضيح أثر العمل.');
+        if (!strengths.length) strengths.push('يتوفر نص يمكن البدء منه في تطوير السيرة الذاتية.');
+        const improvements = [];
+        if (!quantified) improvements.push('أضف أرقاماً أو نتائج قابلة للقياس إلى وصف المشاريع والخبرات.');
+        if (!normalized.includes('project') && !normalized.includes('مشروع')) improvements.push('أضف مشروعاً أو أكثر مع توضيح دورك والأدوات والنتيجة.');
+        if (!normalized.includes('education') && !normalized.includes('تعليم')) improvements.push('أضف قسم التعليم واسم الدرجة أو التخصص.');
+        if (!improvements.length) improvements.push('خصص الملخص والمهارات لتتوافق مع إعلان الوظيفة المستهدفة.');
+        return {
+            score,
+            ats_score: Math.min(9, Math.max(3, 4 + Math.min(3, sectionMatches.length) + (normalized.includes('@') ? 1 : 0))),
+            field_fit: Math.min(9, Math.max(2, 3 + Math.min(6, fieldMatches.length * 2))),
+            summary: `تقييم محلي أولي لسيرتك في مجال ${field} اعتماداً على النص الملصق فقط. هذه النتيجة إرشادية ولا تستخدم خدمة الذكاء الاصطناعي.`,
+            strengths,
+            weaknesses: improvements.slice(0, 3),
+            missing_skills: fieldMatches.length ? [`أضف أمثلة أو مشاريع تثبت مهارات ${field}.`] : [`أضف مهارات وأدوات مرتبطة بمجال ${field}.`],
+            improvements
+        };
+    };
+
+    const renderResult = (data, local = false) => {
         const score = Math.max(0, Math.min(10, Number(data.score)));
         const pct = Math.round(score * 10);
         const meter = (label, value) => { const safe = Math.max(0, Math.min(10, Number(value) || 0)); return `<div class="cv-score-meter"><div><span>${label}</span><strong>${safe}/10</strong></div><div class="cv-meter-track"><span style="width:${safe * 10}%"></span></div></div>`; };
-        result.innerHTML = `${data.mock === true ? '<div class="cv-mock-banner" role="status">نتيجة تجريبية: لم يتم الاتصال بـ Gemini. أضف GEMINI_API_KEY إلى إعدادات الخادم لتفعيل التقييم الحقيقي.</div>' : ''}<div class="cv-result-top"><div><span class="cv-eyebrow">نتيجة التقييم</span><h3>ملخص سيرتك الذاتية</h3><p>${escapeHtml(data.summary)}</p></div><div class="cv-score" role="img" aria-label="التقييم ${score} من 10" style="--score:${pct}%"><strong>${score}<small>/10</small></strong></div></div><div class="cv-score-meters">${meter('توافق السيرة مع المجال', data.field_fit)}${meter('ملاءمة أنظمة ATS', data.ats_score)}</div><div class="cv-result-grid">${listCard('نقاط القوة', data.strengths, '✦')}${listCard('نقاط تحتاج إلى تحسين', data.weaknesses, '↗')}${listCard('مهارات ناقصة', data.missing_skills, '＋')}${listCard('خطوات مقترحة', data.improvements, '✓')}</div><a class="cv-build-link" href="pages/cv-builder.html">أنشئ سيرة محسّنة ←</a>`;
+        result.innerHTML = `${local ? '<div class="cv-mock-banner" role="status">تقييم محلي (خدمة الذكاء الاصطناعي غير متاحة)</div>' : ''}<div class="cv-result-top"><div><span class="cv-eyebrow">نتيجة التقييم</span><h3>ملخص سيرتك الذاتية</h3><p>${escapeHtml(data.summary)}</p></div><div class="cv-score" role="img" aria-label="التقييم ${score} من 10" style="--score:${pct}%"><strong>${score}<small>/10</small></strong></div></div><div class="cv-score-meters">${meter('توافق السيرة مع المجال', data.field_fit)}${meter('ملاءمة أنظمة ATS', data.ats_score)}</div><div class="cv-result-grid">${listCard('نقاط القوة', data.strengths, '✦')}${listCard('نقاط تحتاج إلى تحسين', data.weaknesses, '↗')}${listCard('مهارات ناقصة', data.missing_skills, '＋')}${listCard('خطوات مقترحة', data.improvements, '✓')}</div><a class="cv-build-link" href="pages/cv-builder.html">أنشئ سيرة محسّنة ←</a>`;
         result.hidden = false;
     };
 
@@ -100,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
         result.hidden = true;
         button.disabled = true;
         form.classList.add('is-loading');
+        let requestTimeout;
         try {
             const requestBody = { field: targetInput.value };
             if (cvText) requestBody.text = cvText;
@@ -107,14 +142,40 @@ document.addEventListener('DOMContentLoaded', function () {
                 const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = () => reject(new Error('تعذر قراءة الملف. اختره مرة أخرى وحاول.')); reader.readAsDataURL(selectedUpload); });
                 requestBody.file = { mimeType: allowedTypes.has(selectedUpload.type) ? selectedUpload.type : mimeFromName(selectedUpload.name), data: String(dataUrl).split(',')[1] };
             }
-            const response = await fetch('/api/analyze-cv', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(requestBody) });
+            const controller = new AbortController();
+            requestTimeout = setTimeout(() => controller.abort(), 20000);
+            const response = await fetch('/api/analyze-cv', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(requestBody), signal: controller.signal });
             const payload = await response.json().catch(() => ({}));
+            clearTimeout(requestTimeout);
             if (!response.ok) throw new Error(payload.error || (response.status === 429 ? 'تم تجاوز عدد المحاولات. انتظر قليلاً ثم أعد المحاولة.' : 'تعذر إكمال التقييم الآن. حاول مرة أخرى.'));
+            if (payload.mock === true) {
+                if (!cvText) throw new Error('الخدمة غير متاحة. الصق نص سيرتك الذاتية للحصول على تقييم محلي؛ الملف ما زال محدداً ويمكنك إعادة المحاولة لاحقاً.');
+                renderResult(localEvaluate(cvText, targetInput.value), true);
+                showMessage('اكتمل التقييم المحلي للنص الملصق. الملف ما زال محدداً.', 'success');
+                return;
+            }
             renderResult(payload);
             showMessage('اكتمل التقييم. استخدم الاقتراحات لتطوير سيرتك.', 'success');
         } catch (error) {
-            showMessage(error.message === 'Failed to fetch' ? 'تعذر الاتصال بالخادم. تحقق من اتصالك وشغّل المشروع عبر Vercel محلياً.' : error.message || 'حدث خطأ أثناء تحليل السيرة. حاول مرة أخرى.', 'error');
+            if (error.name === 'AbortError' || error.name === 'TypeError' || error.message === 'Failed to fetch') {
+                if (cvText) {
+                    renderResult(localEvaluate(cvText, targetInput.value), true);
+                    showMessage('تعذر الوصول إلى خدمة الذكاء الاصطناعي. عُرض تقييم محلي للنص الملصق.', 'success');
+                } else {
+                    showMessage('تعذر الوصول إلى خدمة الذكاء الاصطناعي. الصق نص سيرتك الذاتية للحصول على تقييم محلي؛ الملف ما زال محدداً ويمكنك إعادة المحاولة لاحقاً.', 'error');
+                }
+            } else if (error.message.startsWith('الخدمة غير متاحة.')) {
+                showMessage(error.message, 'error');
+            } else if (cvText) {
+                renderResult(localEvaluate(cvText, targetInput.value), true);
+                showMessage('تعذر إكمال تقييم الذكاء الاصطناعي. عُرض تقييم محلي للنص الملصق.', 'success');
+            } else if (selectedUpload) {
+                showMessage('تعذر إكمال تقييم الملف حالياً. الصق نص سيرتك الذاتية للحصول على تقييم محلي؛ الملف ما زال محدداً ويمكنك إعادة المحاولة لاحقاً.', 'error');
+            } else {
+                showMessage(error.message || 'حدث خطأ أثناء تحليل السيرة. حاول مرة أخرى.', 'error');
+            }
         } finally {
+            clearTimeout(requestTimeout);
             button.disabled = false;
             form.classList.remove('is-loading');
         }
