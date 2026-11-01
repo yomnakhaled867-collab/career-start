@@ -187,3 +187,16 @@ video, .form-container {
     color: #38bdf8;
     font-weight: bold;
 }
+.logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+}

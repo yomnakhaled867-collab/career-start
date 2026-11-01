@@ -18,11 +18,11 @@ function submitFeedback() {
     const feedbackText = document.getElementById('feedbackText').value;
     
     if (currentRating === 0) {
-        alert('من فضلك اختاري عدد النجوم للتقييم أولاً ✨');
+        alert('من فضلك اختر عدد النجوم للتقييم أولاً ✨');
         return;
     }
     
-    alert(`شكراً لكِ على تقييمك (${currentRating} نجوم)! تم استلام رأيك بنجاح ❤️`);
+    alert(`شكراً لك على تقييمك (${currentRating} نجوم)! تم استلام رأيك بنجاح ❤️`);
     
     document.getElementById('feedbackText').value = '';
     setRating(0);
