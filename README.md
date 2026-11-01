@@ -21,15 +21,9 @@ Keep shared styles in `css/base.css` and `css/layout.css`, shared browser behavi
 
 ## Run locally
 
-For the static site, run a local HTTP server from the repository root:
+The static pages can be previewed with `python3 -m http.server 8000` from the repository root at [http://localhost:8000](http://localhost:8000). The CV analyzer runs entirely in browser JavaScript and works in this static mode without an API or key. Its score is a local heuristic, and the visitor must paste selectable CV text; it does not extract text from PDFs or images. The optional AI improvement buttons in the CV builder still use the Vercel endpoint.
 
-```sh
-python3 -m http.server 8000
-```
-
-Open [http://localhost:8000](http://localhost:8000). Serving over HTTP keeps relative paths working; opening `index.html` directly as a file may not.
-
-To exercise Vercel serverless functions locally, install/use the Vercel CLI and run `vercel dev` from the repository root. Add local values to `.env.local` as needed. Start from `.env.example`; never commit `.env.local`. `SUPABASE_ANON_KEY` is the public client key and may be used in browser code. Keep `GEMINI_API_KEY` and any Supabase service-role key server-side only.
+To use the optional CV builder AI improvement endpoint locally, install/use the Vercel CLI and run `vercel dev` from the repository root, then open the local URL it prints (usually `http://localhost:3000`). Add `GEMINI_API_KEY` to `.env.local` to enable those suggestions. The CV analyzer does not need Vercel or a key. Start from `.env.example`; never commit `.env.local`. `SUPABASE_ANON_KEY` is the public client key and may be used in browser code. Keep `GEMINI_API_KEY` and any Supabase service-role key server-side only.
 
 ## Deploy to Vercel
 
@@ -37,7 +31,8 @@ To exercise Vercel serverless functions locally, install/use the Vercel CLI and 
 2. After review and merge, import the Git repository in Vercel (or connect the existing Vercel project) and set the project root to the repository root.
 3. Select the **Other** framework preset. This is a static HTML/CSS/JS project with Vercel functions under `api/`; it does not need a build command or output directory.
 4. Add the required environment variables in the Vercel project settings for the appropriate environments. Use `.env.example` as the variable-name reference. Keep Gemini and service-role secrets server-side; never put them in client code.
-5. Deploy from `main`, then open the generated deployment URL and check the landing page, feature-page navigation, and any configured API flow.
+5. Add `GEMINI_API_KEY` under **Settings → Environment Variables** for **Production** (and Preview if needed), then redeploy only if you want optional AI suggestions in the CV builder. The CV analyzer works without it.
+6. Share the same generated Vercel URL with the lab computers. Each device must open that deployed URL; `localhost` refers to the individual computer, and the API will not work when the site is served with Python's static server.
 
 ## Branching and reviews
 
@@ -55,7 +50,7 @@ Each owner should keep changes within their assigned files and coordinate shared
 | Auth/layout | `js/auth.js`, `js/layout.js`, `css/layout.css`, `css/base.css`, shared navigation markup in `index.html` and `pages/*.html` | Shared navigation/layout and Supabase sign-in/sign-up experience | Navigation works across landing and feature pages; auth uses `supabase-js` from a CDN and only the anon key in the browser; loading, success, and error states are visible; shared styles remain consistent. |
 | Quiz | `pages/quiz.html`, `js/quiz.js`, `css/quiz.css` | Career-interest quiz and recommendation results | User can submit the quiz and see a recommendation; input validation and empty/error states are handled; the page links correctly to the relevant roadmap. |
 | Roadmaps | `pages/roadmaps.html`, `js/roadmaps.js`, `css/roadmaps.css`, `data/roadmaps.json` | Browsable learning roadmaps for the supported career paths | Roadmap content is loaded from shared JSON; paths are readable and navigable; missing or failed data shows a useful message. |
-| CV analyzer + serverless endpoint | `pages/cv-analyzer.html`, `js/cv-analyzer.js`, `css/cv-analyzer.css`, `api/analyze-cv.js` (or another agreed endpoint filename) | CV analysis flow backed by a Vercel function calling Gemini | Browser sends requests only to the project endpoint; Gemini key stays in server environment; endpoint validates input and returns useful errors; UI shows loading and failure states. |
+| CV analyzer | `js/cv-analyzer.js`, analyzer markup in `index.html`, `css/cv-analyzer.css` | Local, heuristic CV review with no external API | Pasted text is scored in the browser; results explain their heuristic nature; no CV text is sent to a server. |
 | Interview | `pages/interview.html`, `js/interview.js`, `css/interview.css` | Interview preparation page with usable question categories and practice flow | Category controls and practice interactions work on desktop and mobile; content is understandable; empty/loading/error states are handled for any asynchronous behavior. |
 | CV guide + demo integration | `pages/cv-guide.html`, `js/cv-guide.js`, `css/cv-guide.css`; coordinate integration edits to `index.html` and shared navigation | CV writing guide plus a coherent end-to-end demo linking all features | Guide is complete and navigable; landing page links to each feature; links/assets resolve; demo flow is presentation-ready and integrated changes are reviewed with shared-file owners. |
 

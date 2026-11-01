@@ -52,6 +52,35 @@
 .cv-choose-file, .cv-selected-file button { padding: .45rem .8rem; border: 1px solid #38bdf8; border-radius: 8px; background: transparent; color: #7dd3fc; font: inherit; cursor: pointer; }
 .cv-selected-file { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .65rem; margin-top: .5rem; color: #e2e8f0; font-size: .84rem; }
 .cv-privacy-note { margin: -.2rem 0 .25rem; color: #94a3b8; font-size: .78rem; }
+.cv-analyzer-heading h1, .cv-analyzer-heading h3 { color: #38bdf8; margin: .35rem 0; }
+#cvAnalyzerForm { display: grid; gap: .7rem; }
+#cvAnalyzerForm label { color: #e2e8f0; font-weight: 700; }
+#cvAnalyzerForm select, #cvAnalyzerForm textarea { width: 100%; padding: .8rem 1rem; border: 1px solid #334155; border-radius: 8px; background: #0f172a; color: #f8fafc; font: inherit; }
+#cvAnalyzerForm textarea { min-height: 180px; resize: vertical; line-height: 1.7; }
+#cvAnalyzerForm select:focus, #cvAnalyzerForm textarea:focus { outline: 2px solid #38bdf8; outline-offset: 2px; }
+.cv-form-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; color: #94a3b8; font-size: .78rem; }
+.cv-form-message { margin: .25rem 0; padding: .75rem 1rem; border-radius: 8px; color: #e2e8f0; background: #1e293b; }
+.cv-form-message.error { color: #fecaca; background: rgba(127,29,29,.35); }
+.cv-form-message.success { color: #bbf7d0; background: rgba(20,83,45,.35); }
+.cv-form-message.loading { color: #bae6fd; background: rgba(7,89,133,.35); }
+.cv-analysis-result { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(148,163,184,.2); }
+.cv-result-top { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.cv-result-top h3 { margin: .35rem 0; color: #f8fafc; }
+.cv-result-top p { color: #cbd5e1; line-height: 1.7; }
+.cv-score { flex: 0 0 112px; width: 112px; height: 112px; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(#38bdf8 var(--score), #23314f 0); position: relative; }
+.cv-score::before { content: ''; position: absolute; inset: 8px; border-radius: inherit; background: #111c3a; }
+.cv-score strong { position: relative; color: #fff; font-size: 1.65rem; }
+.cv-score small { color: #94a3b8; font-size: .8rem; }
+.cv-result-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .85rem; margin-top: 1rem; }
+.cv-result-card { padding: 1rem; border: 1px solid rgba(148,163,184,.16); border-radius: 12px; background: #15213e; color: #dbeafe; }
+.cv-result-card h4 { margin: 0 0 .65rem; color: #7dd3fc; }
+.cv-result-card ul { margin: 0; padding-inline-start: 1.2rem; line-height: 1.7; }
+.cv-result-card li + li { margin-top: .35rem; }
+.cv-result-card p { margin-bottom: 0; color: #94a3b8; }
+.cv-button-label { display: inline; }
+.is-loading .cv-spinner { display: inline-block; width: .9rem; height: .9rem; margin-inline-start: .5rem; border: 2px solid rgba(255,255,255,.45); border-top-color: #fff; border-radius: 50%; animation: cv-spin .7s linear infinite; vertical-align: middle; }
+.cv-spinner { display: none; }
+@keyframes cv-spin { to { transform: rotate(360deg); } }
 .cv-mock-banner { margin-bottom: 1rem; padding: .85rem 1rem; border: 1px solid rgba(56,189,248,.35); border-radius: 10px; background: rgba(56,189,248,.1); color: #bae6fd; font-size: .88rem; }
 .cv-score-meters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
 .cv-score-meter { padding: 1rem; border: 1px solid rgba(148,163,184,.15); border-radius: 12px; background: #15213e; color: #dbeafe; }
@@ -60,4 +89,4 @@
 .cv-meter-track { height: 8px; overflow: hidden; border-radius: 99px; background: #0b142b; }
 .cv-meter-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #38bdf8, #34d399); }
 .cv-build-link { display: inline-flex; margin-top: 1rem; padding: .75rem 1rem; border-radius: 9px; background: #0284c7; color: #fff; font-weight: 700; text-decoration: none; }
-@media (max-width: 640px) { .cv-score-meters { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .cv-score-meters, .cv-result-grid { grid-template-columns: 1fr; } .cv-result-top { align-items: flex-start; flex-direction: column-reverse; } .cv-score { width: 88px; height: 88px; flex-basis: 88px; } }

@@ -1,122 +1,159 @@
-// أداة توليد ملخص الـ CV
-document.addEventListener('DOMContentLoaded', function () {
-    const generateSummaryBtn = document.getElementById('generateSummaryBtn');
-    const cvSkillInput = document.getElementById('cvSkillInput');
-    const cvSummaryResult = document.getElementById('cvSummaryResult');
-
-    if (generateSummaryBtn) {
-        generateSummaryBtn.addEventListener('click', function () {
-            const skillText = cvSkillInput.value.trim();
-
-            if (skillText === "") {
-                alert("يرجى كتابة تخصصك أو مهاراتك أولاً!");
-                return;
-            }
-
-            // نص تجريبي احترافي يتم توليده
-            const generatedText = `خريج حديث طموح يمتلك شغفاً كبيراً بمجال (${skillText}). يسعى لاستغلال مهاراته الأكاديمية والتطبيقية في بناء مشاريع مبتكرة وتقديم قيمة مضافة للفريق، مع الحرص المستمر على التعلم والتطور المهني.`;
-
-            cvSummaryResult.innerText = generatedText;
-            cvSummaryResult.style.display = 'block';
-        });
-    }
-});
-// مقيّم السيرة الذاتية
+// Local CV review: runs in the browser and does not upload CV content.
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('cvAnalyzerForm');
     if (!form) return;
 
     const cvInput = document.getElementById('cvTextInput');
-    const fileInput = document.getElementById('cvFileInput');
-    const uploadArea = document.getElementById('cvUploadArea');
-    const selectedFile = document.getElementById('cvSelectedFile');
-    const fileDetails = document.getElementById('cvFileDetails');
-    let selectedUpload = null;
     const targetInput = document.getElementById('cvTargetField');
     const count = document.getElementById('cvCharCount');
     const button = document.getElementById('analyzeCvBtn');
     const message = document.getElementById('cvFormMessage');
     const result = document.getElementById('cvAnalysisResult');
+    const cvFileInput = document.getElementById('cvFileInput');
+    const maxChars = 6000;
+    const builderHref = location.pathname.includes('/pages/') ? 'cv-builder.html' : 'pages/cv-builder.html';
 
+    // Keep the existing builder hand-off, when browser storage is available.
     try {
         const builderCv = sessionStorage.getItem('careerStartBuilderCv');
         if (builderCv) {
             cvInput.value = builderCv;
-            count.textContent = `${builderCv.length} / 6000`;
             sessionStorage.removeItem('careerStartBuilderCv');
         }
     } catch (_) { /* Storage may be unavailable in private browsing. */ }
+    count.textContent = `${cvInput.value.length} / ${maxChars}`;
 
     const showMessage = (text, kind) => {
         message.textContent = text;
         message.className = `cv-form-message ${kind || ''}`;
         message.hidden = !text;
     };
-    cvInput.addEventListener('input', () => { count.textContent = `${cvInput.value.length} / 6000`; });
+    cvInput.addEventListener('input', () => { count.textContent = `${cvInput.value.length} / ${maxChars}`; });
 
-    const maxFileBytes = 3 * 1024 * 1024;
-    const allowedTypes = new Set(['application/pdf', 'image/png', 'image/jpeg']);
-    const allowedExtensions = /\.(pdf|png|jpe?g)$/i;
-    const mimeFromName = name => name.toLowerCase().endsWith('.pdf') ? 'application/pdf' : name.toLowerCase().endsWith('.png') ? 'image/png' : 'image/jpeg';
-    const chooseFile = () => fileInput.click();
-    const setFile = file => {
-        if (!file) return;
-        const extensionIsAllowed = allowedExtensions.test(file.name);
-        const typeIsUnknown = !file.type || file.type === 'application/octet-stream';
-        if ((!allowedTypes.has(file.type) && !typeIsUnknown) || (!allowedTypes.has(file.type) && !extensionIsAllowed)) { showMessage('نوع الملف غير مدعوم. اختر ملف PDF أو PNG أو JPG.', 'error'); fileInput.value = ''; return; }
-        if (file.size > maxFileBytes) { showMessage('حجم الملف أكبر من 3 ميجابايت. اختر ملفاً أصغر.', 'error'); fileInput.value = ''; return; }
-        if (file.size === 0) { showMessage('الملف فارغ. اختر ملفاً آخر.', 'error'); fileInput.value = ''; return; }
-        selectedUpload = file;
-        const size = file.size < 1024 * 1024 ? `${(file.size / 1024).toFixed(1)} كيلوبايت` : `${(file.size / (1024 * 1024)).toFixed(2)} ميجابايت`;
-        fileDetails.textContent = `${file.name} — ${size}`;
-        selectedFile.hidden = false;
-        showMessage('', '');
-    };
-    document.getElementById('cvChooseFile').addEventListener('click', chooseFile);
-    uploadArea.addEventListener('click', event => { if (!event.target.closest('button')) chooseFile(); });
-    uploadArea.addEventListener('keydown', event => { if (event.target === uploadArea && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); chooseFile(); } });
-    fileInput.addEventListener('change', () => setFile(fileInput.files[0]));
-    document.getElementById('cvRemoveFile').addEventListener('click', () => { selectedUpload = null; fileInput.value = ''; selectedFile.hidden = true; fileDetails.textContent = ''; });
-    ['dragenter', 'dragover'].forEach(type => uploadArea.addEventListener(type, event => { event.preventDefault(); uploadArea.classList.add('is-dragging'); }));
-    ['dragleave', 'drop'].forEach(type => uploadArea.addEventListener(type, event => { event.preventDefault(); uploadArea.classList.remove('is-dragging'); }));
-    uploadArea.addEventListener('drop', event => setFile(event.dataTransfer.files[0]));
-
+    const normalize = text => text.toLowerCase()
+        .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+        .replace(/[أإآ]/g, 'ا').replace(/ى/g, 'ي')
+        .replace(/[^\p{L}\p{N}+#.]/gu, ' ').replace(/\s+/g, ' ').trim();
     const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+    const hasAny = (text, terms) => terms.some(term => text.includes(normalize(term)));
+    const words = text => text.split(/\s+/).filter(Boolean);
+
+    const fieldInfo = {
+        programming: {
+            label: 'البرمجة', skills: ['javascript', 'typescript', 'python', 'java', 'c++', 'html', 'css', 'react', 'node', 'sql', 'git', 'api', 'اختبار', 'برمجة'],
+            missing: ['Git وGitHub', 'اختبارات آلية', 'توثيق وروابط المشاريع'],
+            terms: ['مشروع', 'github', 'git', 'api', 'database', 'قاعدة بيانات', 'اختبار']
+        },
+        uiux: {
+            label: 'تصميم UI/UX', skills: ['figma', 'adobe xd', 'wireframe', 'prototype', 'user research', 'usability', 'ui', 'ux', 'تصميم', 'تجربة المستخدم'],
+            missing: ['بحث المستخدمين', 'اختبار قابلية الاستخدام', 'دراسات حالة للتصميم'],
+            terms: ['figma', 'prototype', 'wireframe', 'user', 'مستخدم', 'case study', 'دراسة حالة']
+        },
+        graphic: {
+            label: 'التصميم الجرافيكي', skills: ['photoshop', 'illustrator', 'indesign', 'branding', 'typography', 'هوية بصرية', 'فوتوشوب', 'اليستريتور', 'تصميم جرافيك'],
+            missing: ['ملف أعمال متنوع', 'شرح قرارات التصميم', 'أساسيات الطباعة والألوان'],
+            terms: ['portfolio', 'ملف اعمال', 'هوية', 'branding', 'illustrator', 'photoshop', 'حملة']
+        }
+    };
+    const sectionTerms = {
+        contact: ['email', 'البريد', 'هاتف', 'phone', 'linkedin', 'github', 'contact'],
+        education: ['education', 'التعليم', 'بكالوريوس', 'جامعة', 'كلية', 'graduation', 'gpa'],
+        experience: ['experience', 'خبرة', 'تدريب', 'intern', 'عمل', 'وظيفة', 'employment'],
+        projects: ['projects', 'مشاريع', 'project', 'مشروع', 'portfolio', 'اعمال'],
+        skills: ['skills', 'مهارات', 'technologies', 'الأدوات', 'tools']
+    };
+
+    function evaluate(raw, fieldKey) {
+        const text = normalize(raw);
+        const info = fieldInfo[fieldKey] || fieldInfo.programming;
+        const sections = Object.fromEntries(Object.entries(sectionTerms).map(([key, terms]) => [key, hasAny(text, terms)]));
+        const skillMatches = info.skills.filter(skill => text.includes(normalize(skill)));
+        const wordCount = words(text).length;
+        const numbers = (raw.match(/\b\d+(?:[.,]\d+)?%?\b/g) || []).length;
+        const actionTerms = ['built', 'created', 'developed', 'designed', 'improved', 'managed', 'نفذت', 'طورت', 'صممت', 'انشأت', 'قدت', 'حسنت'];
+        const actionCount = actionTerms.filter(term => text.includes(normalize(term))).length;
+        const presentSections = Object.values(sections).filter(Boolean).length;
+        const fieldMatches = info.terms.filter(term => text.includes(normalize(term))).length;
+
+        const score = Math.max(1, Math.min(10, Math.round((
+            Math.min(wordCount / 260, 1) * 1.5 +
+            (presentSections / 5) * 2.5 +
+            Math.min(skillMatches.length / 5, 1) * 2 +
+            Math.min(numbers / 3, 1) * 1.5 +
+            Math.min(actionCount / 3, 1) * 1.25 +
+            Math.min(fieldMatches / 4, 1) * 1.25
+        ) * 10) / 10));
+        const ats = Math.max(1, Math.min(10, Math.round((
+            (sections.contact ? 2 : 0) + (sections.education ? 1.5 : 0) +
+            (sections.experience ? 1.5 : 0) + (sections.projects ? 1.5 : 0) +
+            (sections.skills ? 1.5 : 0) + (wordCount >= 80 && wordCount <= 900 ? 1 : 0) +
+            (numbers ? 1 : 0)
+        ) * 10) / 10));
+        const fieldFit = Math.max(1, Math.min(10, Math.round((Math.min(fieldMatches / 4, 1) * 6 + Math.min(skillMatches.length / 4, 1) * 4) * 10) / 10));
+
+        const strengths = [];
+        if (sections.education) strengths.push('معلومات التعليم واضحة وموجودة في السيرة.');
+        if (sections.projects) strengths.push('ذكرت مشاريع يمكن استخدامها لإظهار خبرتك العملية.');
+        if (skillMatches.length) strengths.push(`ظهرت مهارات مرتبطة بـ${info.label}: ${skillMatches.slice(0, 5).join('، ')}.`);
+        if (numbers) strengths.push('توجد أرقام أو نتائج قابلة للقياس في النص.');
+        if (actionCount) strengths.push('استخدمت أفعالاً تصف ما أنجزته أو نفذته.');
+        if (!strengths.length) strengths.push('أدخلت نص السيرة، ويمكن تحسين النتيجة بإضافة أقسام ومهارات محددة.');
+
+        const weaknesses = [];
+        if (!sections.contact) weaknesses.push('أضف وسيلة تواصل مهنية مثل البريد الإلكتروني أو LinkedIn.');
+        if (!sections.education) weaknesses.push('أضف قسم التعليم والدرجة العلمية وسنة التخرج.');
+        if (!sections.experience) weaknesses.push('أضف الخبرات أو التدريب، حتى لو كانت خبرة تطوعية أو جامعية.');
+        if (!sections.projects) weaknesses.push('أضف مشاريعك ودورك المحدد في كل مشروع.');
+        if (!numbers) weaknesses.push('ادعم إنجازاتك بنتائج أو أرقام حقيقية حيثما أمكن.');
+        if (wordCount < 80) weaknesses.push('النص قصير؛ أضف تفاصيل كافية عن التعليم والمهارات والمشاريع.');
+        if (wordCount > 900) weaknesses.push('النص طويل؛ اختصر التكرار واحتفظ بالمعلومات المرتبطة بالوظيفة.');
+
+        const missingSkills = info.missing.filter(skill => !text.includes(normalize(skill.split(' و')[0]))).slice(0, 3);
+        const improvements = [
+            'خصص الملخص والمهارات لتناسب الوظيفة المستهدفة، مع الالتزام بمعلوماتك الحقيقية.',
+            'اكتب نقاط الخبرة بصيغة: فعل واضح + ما أنجزته + نتيجة أو أثر إن توفر.',
+            `أضف أمثلة عملية مرتبطة بمجال ${info.label} وروابطها إن كانت متاحة.`
+        ];
+        return {
+            score, ats_score: ats, field_fit: fieldFit,
+            summary: `تقييم محلي إرشادي لسيرة تستهدف ${info.label}. الدرجة مبنية على طول النص، والأقسام، والمهارات والكلمات المفتاحية الظاهرة؛ راجع النقاط المقترحة وعدّل سيرتك وفق خبرتك الفعلية.`,
+            strengths, weaknesses, missing_skills: missingSkills.length ? missingSkills : info.missing.slice(0, 2), improvements
+        };
+    }
+
     const listCard = (title, entries, icon) => `<article class="cv-result-card"><h4><span>${icon}</span>${title}</h4>${entries.length ? `<ul>${entries.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<p class="cv-empty-list">لا توجد نقاط محددة.</p>'}</article>`;
     const renderResult = data => {
-        const score = Math.max(0, Math.min(10, Number(data.score)));
+        const score = data.score;
         const pct = Math.round(score * 10);
-        const meter = (label, value) => { const safe = Math.max(0, Math.min(10, Number(value) || 0)); return `<div class="cv-score-meter"><div><span>${label}</span><strong>${safe}/10</strong></div><div class="cv-meter-track"><span style="width:${safe * 10}%"></span></div></div>`; };
-        result.innerHTML = `${data.mock === true ? '<div class="cv-mock-banner" role="status">نتيجة تجريبية: لم يتم الاتصال بـ Gemini. أضف GEMINI_API_KEY إلى إعدادات الخادم لتفعيل التقييم الحقيقي.</div>' : ''}<div class="cv-result-top"><div><span class="cv-eyebrow">نتيجة التقييم</span><h3>ملخص سيرتك الذاتية</h3><p>${escapeHtml(data.summary)}</p></div><div class="cv-score" role="img" aria-label="التقييم ${score} من 10" style="--score:${pct}%"><strong>${score}<small>/10</small></strong></div></div><div class="cv-score-meters">${meter('توافق السيرة مع المجال', data.field_fit)}${meter('ملاءمة أنظمة ATS', data.ats_score)}</div><div class="cv-result-grid">${listCard('نقاط القوة', data.strengths, '✦')}${listCard('نقاط تحتاج إلى تحسين', data.weaknesses, '↗')}${listCard('مهارات ناقصة', data.missing_skills, '＋')}${listCard('خطوات مقترحة', data.improvements, '✓')}</div><a class="cv-build-link" href="pages/cv-builder.html">أنشئ سيرة محسّنة ←</a>`;
+        const meter = (label, value) => `<div class="cv-score-meter"><div><span>${label}</span><strong>${value}/10</strong></div><div class="cv-meter-track"><span style="width:${value * 10}%"></span></div></div>`;
+        result.innerHTML = `<div class="cv-mock-banner" role="status">تقييم محلي إرشادي: يعمل على هذا الجهاز فقط، ولا يرسل نص سيرتك إلى أي خادم.</div><div class="cv-result-top"><div><span class="cv-eyebrow">نتيجة المراجعة</span><h3>ملخص سيرتك الذاتية</h3><p>${escapeHtml(data.summary)}</p></div><div class="cv-score" role="img" aria-label="التقييم ${score} من 10" style="--score:${pct}%"><strong>${score}<small>/10</small></strong></div></div><div class="cv-score-meters">${meter('توافق السيرة مع المجال', data.field_fit)}${meter('وضوح الأقسام لـ ATS', data.ats_score)}</div><div class="cv-result-grid">${listCard('نقاط القوة', data.strengths, '✦')}${listCard('نقاط تحتاج إلى تحسين', data.weaknesses, '↗')}${listCard('مهارات أو أدلة ناقصة', data.missing_skills, '＋')}${listCard('خطوات مقترحة', data.improvements, '✓')}</div><a class="cv-build-link" href="${builderHref}">أنشئ سيرة محسّنة ←</a>`;
         result.hidden = false;
     };
 
-    form.addEventListener('submit', async event => {
+    // Local analysis needs selectable text; browsers do not provide PDF/image OCR without a library or API.
+    if (cvFileInput) cvFileInput.addEventListener('change', () => {
+        if (cvFileInput.files.length) showMessage('التحليل المحلي لا يقرأ PDF أو الصور تلقائياً. انسخ نص السيرة والصقه في المربع لتحليله.', 'error');
+    });
+    form.addEventListener('submit', event => {
         event.preventDefault();
         const cvText = cvInput.value.trim();
-        if (!cvText && !selectedUpload) { showMessage('الصق نص السيرة الذاتية أو ارفع ملفاً أولاً.', 'error'); cvInput.focus(); return; }
-        if (cvText.length > 6000) { showMessage('الحد الأقصى 6000 حرف. اختصر النص ثم أعد المحاولة.', 'error'); return; }
-        showMessage('جارٍ تحليل سيرتك الذاتية، قد يستغرق ذلك بضع ثوانٍ…', 'loading');
+        if (!cvText) { showMessage('الصق نص السيرة الذاتية أولاً. التحليل المحلي يحتاج إلى نص قابل للقراءة.', 'error'); cvInput.focus(); return; }
+        if (cvText.length > maxChars) { showMessage(`الحد الأقصى ${maxChars} حرف. اختصر النص ثم أعد المحاولة.`, 'error'); return; }
+        showMessage('جارٍ مراجعة السيرة على جهازك…', 'loading');
         result.hidden = true;
         button.disabled = true;
         form.classList.add('is-loading');
-        try {
-            const requestBody = { field: targetInput.value };
-            if (cvText) requestBody.text = cvText;
-            if (selectedUpload) {
-                const dataUrl = await new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = () => reject(new Error('تعذر قراءة الملف. اختره مرة أخرى وحاول.')); reader.readAsDataURL(selectedUpload); });
-                requestBody.file = { mimeType: allowedTypes.has(selectedUpload.type) ? selectedUpload.type : mimeFromName(selectedUpload.name), data: String(dataUrl).split(',')[1] };
+        // Let the loading state paint before the quick local calculation.
+        window.setTimeout(() => {
+            try {
+                renderResult(evaluate(cvText, targetInput.value));
+                showMessage('اكتملت المراجعة. النتيجة إرشادية وتعتمد على الكلمات الموجودة في النص.', 'success');
+            } catch (_) {
+                showMessage('تعذر تحليل النص. راجع محتوى السيرة وحاول مرة أخرى.', 'error');
+            } finally {
+                button.disabled = false;
+                form.classList.remove('is-loading');
             }
-            const response = await fetch('/api/analyze-cv', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(requestBody) });
-            const payload = await response.json().catch(() => ({}));
-            if (!response.ok) throw new Error(payload.error || (response.status === 429 ? 'تم تجاوز عدد المحاولات. انتظر قليلاً ثم أعد المحاولة.' : 'تعذر إكمال التقييم الآن. حاول مرة أخرى.'));
-            renderResult(payload);
-            showMessage('اكتمل التقييم. استخدم الاقتراحات لتطوير سيرتك.', 'success');
-        } catch (error) {
-            showMessage(error.message === 'Failed to fetch' ? 'تعذر الاتصال بالخادم. تحقق من اتصالك وشغّل المشروع عبر Vercel محلياً.' : error.message || 'حدث خطأ أثناء تحليل السيرة. حاول مرة أخرى.', 'error');
-        } finally {
-            button.disabled = false;
-            form.classList.remove('is-loading');
-        }
+        }, 80);
     });
 });
