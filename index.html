@@ -33,6 +33,7 @@
             <a href="#cv-builder">السيرة الذاتية</a>
             <a href="#interview">الإنترفيو</a>
             <a href="#fields-videos">خريطة المجالات</a>
+            <a href="#faq">الأسئلة الشائعة</a>
             <a href="#feedback-section">تقييم المنصة</a>
         </nav>
     </header>
@@ -58,8 +59,8 @@
             <!-- مكان الفيديو التعريفي -->
             <div class="hero-video">
                 <div class="video-container">
-                    <video controls width="100%">
-                        <source src="assets/from ai.mp4" type="video/mp4">
+                    <video controls poster="assets/main poster.jpg" width="100%">
+                        <source src="assets/main.mp4" type="video/mp4">
                         متصفحك لا يدعم تشغيل الفيديو.
                     </video>
                 </div>
@@ -313,6 +314,46 @@
                 </div>
             </div>
         </section>
+
+        <!-- قسم الأسئلة الشائعة -->
+        <section id="faq" class="faq-section">
+            <div class="section-title">
+                <h2>الأسئلة الشائعة 🡻</h2>
+                <p>إجابات سريعة على أهم الاستفسارات التي تدور في ذهن كل خريج جديد</p>
+            </div>
+
+            <div class="faq-container">
+                <details class="faq-card">
+                    <summary>كيف أعمل بورتفوليو احترافي وأنا ليس لدي خبرة سابقة؟</summary>
+                    <p>ركز على مشاريع الكلية، المشاريع الشخصية التي طبقتها أثناء التعلم، ومشاريع الـ Open Source. المهم عرض طريقة تفكيرك وجودة تنفيذك حتى لو لم تكن لوظيفة مدفوعة.</p>
+                </details>
+
+                <details class="faq-card">
+                    <summary>ما هو نظام الـ ATS؟</summary>
+                    <p> "نظام تتبع المتقدمين" ATS هو اختصار لـ Applicant Tracking System هو تطبيق برمجي أو نظام إلكتروني تستخدمه أقسام الموارد البشرية (HR) والشركات لإدارة عملية التوظيف واكتساب المواهب رقمياً. يعمل هذا النظام كقاعدة بيانات مركزية تستقبل السير الذاتية وطلبات التوظيف، ويقوم بفرزها وتحليلها تلقائياً لتسهيل مهمة مسؤولي التوظيف في اختيار الأنسب.</p>
+                </details>
+
+                <details class="faq-card">
+                    <summary>كيف أجد تدريب صيفي (Internship) يناسب مجالي؟</summary>
+                    <p>تابع منصات العمل مثل LinkedIn وWuzzuf باستمرار، واحرص على التواصل المباشر مع المسئولين عن التوظيف (HR) في الشركات المبتدئة، مع بناء حضور قوي يعرض مهاراتك.</p>
+                </details>
+
+                <details class="faq-card">
+                    <summary>هل الشهادات الأكاديمية أهم أم المشاريع التطبيقية؟</summary>
+                    <p>المشاريع التطبيقية والبورتفوليو هما الحاسم الأكبر في المجالات التقنية والتصميم، بينما تشكل الشهادات داعماً إضافياً لاثبات الاستمرارية والتعلم الشغوف.</p>
+                </details>
+
+                <details class="faq-card">
+                    <summary>كيف أصمم بورتفوليو (معرض أعمال) قوي إذا لم أعمل مع عملاء حقيقيين؟</summary>
+                    <p>قم ببناء مشاريع افتراضية تخدم مشاكل حقيقية، أو أعد تصميم وتطوير منتجات قائمة لتظهر قدرتك على التحليل والتنفيذ. الجودة وطريقة العرض أهم من عدد المشاريع.</p>
+                </details>
+
+                <details class="faq-card">
+                    <summary>كيف أتجاوز شرط الخبرة الوظيفية (1-2 سنة) المطلوبة لحديثي التخرج؟</summary>
+                    <p>ركز على صياغة مشاريعك الأكاديمية والشخصية في السيرة الذاتية بكفاءة عالية، فالشركات تبحث عن المهارة التطبيقية وإمكانية التعلم السريع وليس مجرد سنوات العمل الفعلي.</p>
+                </details>
+            </div>
+        </section>
         
         <!-- قسم تقييم المنصة -->
         <section id="feedback-section" class="section-container">
@@ -338,6 +379,28 @@
     <footer>
         <p>© 2026 جميع الحقوق محفوظة - منصة career start</p>
     </footer>
+
+<!-- زرار الدعم الفني العائم -->
+<button id="openContactBtn" class="floating-support-btn" title="تواصل مع الدعم الفني">
+    💬
+</button>
+
+<!-- النافذة الصغيرة المنبثقة (Modal) -->
+<div id="contactModal" class="modal-overlay">
+    <div class="modal-content">
+        <span id="closeContactBtn" class="modal-close">&times;</span>
+        <h3>تواصل مع فريق الدعم ✉️</h3>
+        <p>اترك استفسارك أو اقتراحك وسنقوم بالرد عليك في أقرب وقت:</p>
+        
+        <form id="contactForm">
+            <input type="text" placeholder="الاسم بالكامل" required>
+            <input type="email" placeholder="البريد الإلكتروني" required>
+            <textarea rows="4" placeholder="اكتب رسالتك هنا..." required></textarea>
+            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+        </form>
+    </div>
+</div>
+
 
     <script src="js/layout.js"></script>
     <script src="js/quiz.js"></script>

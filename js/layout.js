@@ -27,3 +27,32 @@ function submitFeedback() {
     document.getElementById('feedbackText').value = '';
     setRating(0);
 }
+const modal = document.getElementById('contactModal');
+const openBtn = document.getElementById('openContactBtn');
+const closeBtn = document.getElementById('closeContactBtn');
+const contactForm = document.getElementById('contactForm');
+
+// فتح النافذة عند الضغط على الزرار
+openBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+
+// إغلاق النافذة عند الضغط على زر الإغلاق (X)
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// إغلاق النافذة عند الضغط في أي مكان خارج الصندوق
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// التعامل مع إرسال الفورم
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('شكرًا لتواصلك معنا! تم إرسال رسالتك بنجاح.');
+    contactForm.reset();
+    modal.style.display = 'none';
+});

@@ -40,7 +40,7 @@
 
 .faq-item {
     background-color: #0f172a;
-    padding: 1.2rem;
+    padding: .6rem;
     border-radius: 8px;
     margin-bottom: 1rem;
     border-right: 3px solid #2563eb;
@@ -56,4 +56,65 @@
     color: #cbd5e1;
     font-size: 0.9rem;
     line-height: 1.6;
+}
+/* تنسيق قسم الأسئلة الشائعة */
+.faq-section {
+    padding: 3rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-card {
+    background-color: #0d1527;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.faq-card:hover {
+    border-color: #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.faq-card summary {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.05rem;
+    outline: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-card summary::after {
+    content: '➕';
+    font-size: 0.9rem;
+    color: #38bdf8;
+    transition: transform 0.3s ease;
+}
+
+.faq-card[open] summary::after {
+    content: '➖';
+}
+
+.faq-card p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
