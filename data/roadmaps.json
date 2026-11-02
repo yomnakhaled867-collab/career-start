@@ -1,0 +1,155 @@
+{
+  "programming": {
+    "title": "تطوير الواجهات والويب",
+    "description": "ابدأ بأساسيات الويب، ثم ابنِ واجهات تفاعلية ومشاريع يمكنك عرضها في ملف أعمالك.",
+    "stages": [
+      {
+        "name": "فهم الويب وتجهيز بيئة العمل",
+        "duration": "أسبوع واحد",
+        "skills": ["كيف يعمل الويب والمتصفح", "إعداد محرر الأكواد والملفات", "أساسيات Git وGitHub"],
+        "resources": [
+          {"title": "MDN: مسار تعلّم تطوير الويب", "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development", "type": "article", "language": "en"},
+          {"title": "كتاب Pro Git المجاني", "url": "https://git-scm.com/book/en/v2", "type": "article", "language": "en", "verify": true}
+        ]
+      },
+      {
+        "name": "بناء صفحات بـ HTML وCSS",
+        "duration": "3 إلى 4 أسابيع",
+        "skills": ["HTML دلالي", "تنسيق CSS وتخطيط الصفحات", "تصميم متجاوب للموبايل"],
+        "resources": [
+          {"title": "freeCodeCamp: التعلّم والمشاريع", "url": "https://www.freecodecamp.org/learn/", "type": "course", "language": "en"},
+          {"title": "MDN: دروس تطوير الويب", "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development", "type": "article", "language": "en"}
+        ]
+      },
+      {
+        "name": "JavaScript والتفاعل",
+        "duration": "4 إلى 6 أسابيع",
+        "skills": ["المتغيرات والدوال والمصفوفات", "التعامل مع DOM والأحداث", "التحقق من المدخلات ومعالجة الأخطاء"],
+        "resources": [
+          {"title": "JavaScript.info: الدليل الحديث لـ JavaScript", "url": "https://javascript.info/", "type": "course", "language": "en"},
+          {"title": "freeCodeCamp: دروس ومشاريع برمجية", "url": "https://www.freecodecamp.org/learn/", "type": "practice", "language": "en"}
+        ]
+      },
+      {
+        "name": "واجهات الاستخدام وإتاحة الوصول",
+        "duration": "2 إلى 3 أسابيع",
+        "skills": ["Flexbox وCSS Grid", "مبادئ الإتاحة والتنقل بلوحة المفاتيح", "اختبار الواجهة على أحجام شاشة مختلفة"],
+        "resources": [
+          {"title": "MDN: منهج تعلّم الويب", "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development", "type": "article", "language": "en"},
+          {"title": "roadmap.sh: مسار Frontend", "url": "https://roadmap.sh/frontend", "type": "article", "language": "en", "verify": true}
+        ]
+      },
+      {
+        "name": "مشروع تطبيقي وملف الأعمال",
+        "duration": "3 إلى 4 أسابيع",
+        "skills": ["تحويل فكرة إلى موقع متعدد الأقسام", "نشر المشروع ومشاركة رابطه", "كتابة وصف واضح لدورك وقراراتك"],
+        "resources": [
+          {"title": "freeCodeCamp: مشاريع تطبيقية", "url": "https://www.freecodecamp.org/learn/", "type": "practice", "language": "en"},
+          {"title": "GitHub Skills: تعلّم بالممارسة", "url": "https://skills.github.com/", "type": "course", "language": "en", "verify": true}
+        ]
+      }
+    ]
+  },
+  "uiux": {
+    "title": "تصميم تجربة وواجهة المستخدم UI/UX",
+    "description": "تعلّم فهم المستخدم، وصياغة الحلول، ثم حوّلها إلى واجهات ونماذج أولية قابلة للاختبار.",
+    "stages": [
+      {
+        "name": "مبادئ التصميم وتجربة المستخدم",
+        "duration": "أسبوعان",
+        "skills": ["الفرق بين UX وUI", "التسلسل البصري والتباين", "مبادئ الإتاحة والتصميم المرتكز على المستخدم"],
+        "resources": [
+          {"title": "Material Design 3: إرشادات التصميم", "url": "https://m3.material.io/", "type": "article", "language": "en"},
+          {"title": "Google UX Design Certificate على Coursera", "url": "https://www.coursera.org/professional-certificates/google-ux-design", "type": "course", "language": "en", "verify": true}
+        ]
+      },
+      {
+        "name": "البحث وفهم احتياجات المستخدم",
+        "duration": "أسبوعان",
+        "skills": ["كتابة أسئلة مقابلة محايدة", "تحديد أنماط الاحتياج والمشكلات", "إنشاء شخصيات وسيناريوهات استخدام"],
+        "resources": [
+          {"title": "Nielsen Norman Group: إرشادات قابلية الاستخدام", "url": "https://www.nngroup.com/articles/ten-usability-heuristics/", "type": "article", "language": "en", "verify": true},
+          {"title": "Figma: مكتبة الموارد", "url": "https://www.figma.com/resource-library/", "type": "article", "language": "en", "verify": true}
+        ]
+      },
+      {
+        "name": "تدفق المستخدم وهيكلة المحتوى",
+        "duration": "أسبوعان",
+        "skills": ["رسم رحلة المستخدم", "بناء خريطة للمحتوى", "تخطيط تدفق المهام والشاشات"],
+        "resources": [
+          {"title": "Figma: مكتبة الموارد", "url": "https://www.figma.com/resource-library/", "type": "article", "language": "en", "verify": true},
+          {"title": "Material Design 3: أنماط ومكونات الواجهة", "url": "https://m3.material.io/", "type": "article", "language": "en"}
+        ]
+      },
+      {
+        "name": "Wireframes ونموذج أولي",
+        "duration": "3 أسابيع",
+        "skills": ["رسم تخطيطات منخفضة الدقة", "إنشاء مكونات وأنماط متسقة", "ربط الشاشات بنموذج تفاعلي"],
+        "resources": [
+          {"title": "Figma: مكتبة الموارد", "url": "https://www.figma.com/resource-library/", "type": "video", "language": "en", "verify": true},
+          {"title": "Material Design 3: مكتبة الأنماط", "url": "https://m3.material.io/", "type": "article", "language": "en"}
+        ]
+      },
+      {
+        "name": "اختبار قابلية الاستخدام وملف الأعمال",
+        "duration": "2 إلى 3 أسابيع",
+        "skills": ["اختبار نموذج مع مستخدمين", "تسجيل الملاحظات وتحديد الأولويات", "عرض دراسة حالة تشرح المشكلة والقرارات والنتيجة"],
+        "resources": [
+          {"title": "Nielsen Norman Group: إرشادات قابلية الاستخدام", "url": "https://www.nngroup.com/articles/ten-usability-heuristics/", "type": "article", "language": "en", "verify": true},
+          {"title": "Figma Community: استكشف موارد التصميم", "url": "https://www.figma.com/community", "type": "practice", "language": "en", "verify": true}
+        ]
+      }
+    ]
+  },
+  "graphic": {
+    "title": "التصميم الجرافيكي والهوية البصرية",
+    "description": "طوّر حسك البصري، وتدرّب على أدوات التصميم، ثم أنشئ مجموعة أعمال متماسكة تشرح قراراتك.",
+    "stages": [
+      {
+        "name": "أساسيات التكوين واللون",
+        "duration": "أسبوعان",
+        "skills": ["التوازن والمحاذاة والتسلسل البصري", "نظرية الألوان والتباين", "اختيار الصور وتكوين المشهد"],
+        "resources": [
+          {"title": "Adobe: دروس Illustrator", "url": "https://helpx.adobe.com/illustrator/tutorials.html", "type": "video", "language": "en", "verify": true},
+          {"title": "Canva Design School", "url": "https://www.canva.com/learn/", "type": "article", "language": "en", "verify": true}
+        ]
+      },
+      {
+        "name": "الخطوط والتخطيط",
+        "duration": "أسبوعان",
+        "skills": ["اختيار الخطوط المقروءة", "بناء شبكة ومحاذاة العناصر", "تصميم ملصق أو منشور واضح"],
+        "resources": [
+          {"title": "Adobe: تعلّم Photoshop", "url": "https://helpx.adobe.com/photoshop/tutorials.html", "type": "video", "language": "en", "verify": true},
+          {"title": "Adobe: تعلّم Illustrator", "url": "https://helpx.adobe.com/illustrator/tutorials.html", "type": "video", "language": "en", "verify": true}
+        ]
+      },
+      {
+        "name": "إتقان أدوات التصميم",
+        "duration": "3 إلى 4 أسابيع",
+        "skills": ["إنشاء رسومات متجهية في Illustrator", "معالجة الصور والطبقات في Photoshop", "تصدير الملفات للصيغ والاستخدامات المناسبة"],
+        "resources": [
+          {"title": "Adobe: دروس Illustrator", "url": "https://helpx.adobe.com/illustrator/tutorials.html", "type": "course", "language": "en", "verify": true},
+          {"title": "Adobe: دروس Photoshop", "url": "https://helpx.adobe.com/photoshop/tutorials.html", "type": "course", "language": "en", "verify": true}
+        ]
+      },
+      {
+        "name": "الهوية البصرية وتطبيقاتها",
+        "duration": "3 أسابيع",
+        "skills": ["تصميم شعار ونظام ألوان", "تطبيق الهوية على مواد مختلفة", "تجهيز ملفات التسليم للطباعة والشاشات"],
+        "resources": [
+          {"title": "Canva Design School", "url": "https://www.canva.com/learn/", "type": "course", "language": "en", "verify": true},
+          {"title": "Adobe: موارد ودروس التصميم", "url": "https://www.adobe.com/creativecloud/design/discover/graphic-design.html", "type": "article", "language": "en", "verify": true}
+        ]
+      },
+      {
+        "name": "مشروع متكامل وملف الأعمال",
+        "duration": "3 إلى 4 أسابيع",
+        "skills": ["إنشاء مجموعة أعمال متنوعة ومترابطة", "شرح موجز للموجز الإبداعي والقرارات", "عرض صور واضحة للنتيجة النهائية"],
+        "resources": [
+          {"title": "Behance: استكشف الأعمال الإبداعية", "url": "https://www.behance.net/", "type": "practice", "language": "en", "verify": true},
+          {"title": "Adobe: دروس أدوات التصميم", "url": "https://helpx.adobe.com/creative-cloud/tutorials-explore.html", "type": "video", "language": "en", "verify": true}
+        ]
+      }
+    ]
+  }
+}

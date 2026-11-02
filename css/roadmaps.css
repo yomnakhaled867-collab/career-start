@@ -1,229 +1,149 @@
-/* قسم معرض الوسائط التفاعلية - ستايل بينترست */
-.media-section {
-    padding: 4rem 5%;
-    max-width: 1200px;
+:root {
+    color-scheme: dark;
+    --roadmap-bg: #081321;
+    --roadmap-panel: rgba(15, 30, 51, .92);
+    --roadmap-card: #101f34;
+    --roadmap-line: rgba(148, 163, 184, .18);
+    --roadmap-text: #f1f5f9;
+    --roadmap-muted: #a8b6c9;
+    --roadmap-accent: #38bdf8;
+}
+
+body {
+    background: var(--roadmap-bg);
+    color: var(--roadmap-text);
+}
+
+.roadmaps-page {
+    width: min(1120px, calc(100% - 36px));
     margin: 0 auto;
+    padding: clamp(42px, 7vw, 88px) 0 72px;
 }
 
-.pinterest-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.8rem;
-}
-
-.media-card {
-    background-color: #1a264a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.media-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
-}
-
-.media-wrapper {
-    position: relative;
-    width: 100%;
-    background-color: #0d1527;
-}
-
-.media-wrapper img, 
-.media-wrapper video {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-}
-
-.media-type-tag {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(15, 23, 42, 0.85);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    font-size: 0.75rem;
-    font-weight: bold;
-    padding: 0.3rem 0.7rem;
-    border-radius: 20px;
-    backdrop-filter: blur(4px);
-}
-
-.media-type-tag.image-tag {
-    color: #a855f7;
-    border-color: rgba(168, 85, 247, 0.3);
-}
-
-.card-info {
-    padding: 1.2rem;
-}
-
-.card-info h3 {
-    color: #ffffff;
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-}
-
-.card-info p {
-    color: #94a3b8;
-    font-size: 0.85rem;
-    line-height: 1.5;
-}
-/* تظبيط العرض والأماكن في النص */
-#fields-videos, #feedback-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    box-sizing: border-box;
-}
-
-.videos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.video-card {
-    background-color: #0d1527;
-    border-radius: 12px;
-    padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+.roadmaps-hero {
+    max-width: 760px;
+    margin: 0 auto 38px;
     text-align: center;
 }
 
-.video-card video {
-    width: 100%;
-    height: 150px;
-    border-radius: 8px;
-    object-fit: cover;
+.roadmaps-eyebrow {
+    display: inline-block;
+    color: var(--roadmap-accent);
+    font-size: .82rem;
+    font-weight: 800;
+    letter-spacing: .04em;
 }
 
-.video-card h3 {
-    margin-top: 0.8rem;
-    font-size: 1rem;
-    color: #38bdf8;
-}
-
-/* تنسيق التقييم والنجوم */
-.rating-box {
-    width: 100%;
-    max-width: 500px;
-    margin: 1.5rem auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-.stars-rating {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    direction: ltr;
-}
-
-.stars-rating .star {
-    font-size: 2.2rem;
-    color: #475569;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.stars-rating .star:hover,
-.stars-rating .star.active {
-    color: #f59e0b;
-}
-
-.rating-box textarea {
-    width: 100%;
-    height: 90px;
-    padding: 0.8rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background-color: #0d1527;
+.roadmaps-hero h1 {
+    margin: 10px 0 12px;
     color: #fff;
-    resize: none;
-    box-sizing: border-box;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.2;
 }
-/* تظبيط أبعاد الفيديو جوه الكارت عشان ما يضخمش */
-.card-media {
-    position: relative;
-    width: 100%;
-    height: 180px; /* ارتفاع ثابت ومتناسق */
+
+.roadmaps-hero p,
+.roadmap-heading > div > p {
+    color: var(--roadmap-muted);
+    line-height: 1.9;
+}
+
+.roadmaps-content {
     overflow: hidden;
-    border-radius: 12px 12px 0 0;
-    background-color: #000;
+    border: 1px solid var(--roadmap-line);
+    border-radius: 22px;
+    background: var(--roadmap-panel);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .25);
 }
 
-.card-media video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* بيخلي الفيديو يملأ المربع بالظبط من غير ما يمطه */
-    display: block;
-}
-/* ظبط ألوان الكروت وارتفاعها الموحد */
-.grid .card, .features-grid .card, div.card {
-    background-color: #0d1527 !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 12px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
+.field-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 14px;
+    border-bottom: 1px solid var(--roadmap-line);
+    scrollbar-width: thin;
 }
 
-/* توحيد ارتفاع الجزء الخاص بالميديا/الفيديو/الصورة */
-.card-media, .card video, .card img {
-    height: 180px !important;
-    max-height: 180px !important;
-    object-fit: cover !important;
+.field-tabs[hidden] { display: none; }
+
+.field-tabs button {
+    flex: 1 0 auto;
+    min-height: 44px;
+    padding: 9px 18px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--roadmap-muted);
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background .18s ease, color .18s ease, border-color .18s ease;
 }
 
-/* توضيح العنوان والوصف الباهت */
-.card h3, .card .card-content h3 {
-    color: #ffffff !important;
-    font-size: 1.05rem !important;
-    margin-top: 0.8rem !important;
-    margin-bottom: 0.4rem !important;
+.field-tabs button:hover { background: rgba(56, 189, 248, .08); color: #fff; }
+.field-tabs button[aria-selected="true"] { border-color: rgba(56, 189, 248, .35); background: rgba(14, 116, 144, .25); color: #7dd3fc; }
+.field-tabs button:focus-visible, .stage-check input:focus-visible, .resource-list a:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; }
+
+.roadmap-status {
+    padding: 28px;
+    color: var(--roadmap-muted);
+    text-align: center;
 }
 
-.card p, .card .card-content p {
-    color: #cbd5e1 !important; /* لون رمادي فاتح مقروء جداً */
-    font-size: 0.88rem !important;
-    line-height: 1.5 !important;
-}
-/* ستايل الشعار الأرجواني فوق الفيديو */
-.card-media .badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #150f37;
-    color: #359af2;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    z-index: 10;
+.roadmap-status[hidden], .roadmap-panel[hidden] { display: none; }
+
+.roadmap-heading { padding: 28px 30px 8px; }
+.roadmap-heading h2 { margin: 7px 0; color: #fff; font-size: clamp(1.45rem, 3vw, 2rem); }
+.roadmap-heading > div > p { margin: 0; }
+
+.progress-summary { padding: 16px 30px 24px; }
+.progress-copy { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; font-size: .9rem; }
+.progress-copy span { color: var(--roadmap-muted); }
+.progress-track { height: 10px; overflow: hidden; border-radius: 99px; background: #22334a; }
+.progress-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0ea5e9, #2dd4bf); transition: width .25s ease; }
+
+.stage-list { display: grid; gap: 14px; margin: 0; padding: 0 30px 30px; list-style: none; counter-reset: stages; }
+.stage-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); overflow: hidden; border: 1px solid var(--roadmap-line); border-radius: 16px; background: var(--roadmap-card); transition: border-color .2s ease, opacity .2s ease; }
+.stage-card.is-complete { border-color: rgba(45, 212, 191, .48); }
+.stage-topline { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 20px 10px; border-inline-end: 1px solid var(--roadmap-line); background: rgba(2, 132, 199, .06); }
+.stage-number { color: var(--roadmap-accent); font-size: 1.05rem; font-weight: 850; font-variant-numeric: tabular-nums; }
+.stage-check { display: grid; justify-items: center; gap: 6px; color: var(--roadmap-muted); cursor: pointer; }
+.stage-check input { width: 19px; height: 19px; margin: 0; accent-color: #14b8a6; cursor: pointer; }
+.stage-check span { max-width: 52px; font-size: .65rem; line-height: 1.4; text-align: center; }
+.stage-body { min-width: 0; padding: 19px 22px 21px; }
+.stage-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.stage-title-row h3 { margin: 0; color: #f8fafc; font-size: 1.08rem; line-height: 1.5; }
+.stage-duration { flex: 0 0 auto; padding: 5px 9px; border-radius: 999px; background: rgba(56, 189, 248, .1); color: #7dd3fc; font-size: .76rem; }
+.skills-label, .resources-label { margin: 16px 0 8px; color: #cbd5e1; font-size: .83rem; font-weight: 800; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; list-style: none; }
+.skill-list li { padding: 6px 10px; border: 1px solid rgba(148, 163, 184, .12); border-radius: 999px; background: rgba(148, 163, 184, .07); color: #cbd5e1; font-size: .78rem; }
+.resource-list { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+.resource-list li { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.resource-list a { display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: 7px; color: #7dd3fc; line-height: 1.6; text-decoration: none; }
+.resource-list a:hover { color: #bae6fd; text-decoration: underline; text-underline-offset: 3px; }
+.resource-meta { color: var(--roadmap-muted); font-size: .72rem; }
+.verify-note { color: #fbbf24; font-size: .7rem; }
+.stage-card.is-complete .stage-title-row h3 { color: #99f6e4; }
+
+@media (max-width: 640px) {
+    .roadmaps-page { width: min(100% - 22px, 1120px); padding: 36px 0 48px; }
+    .roadmaps-hero { margin-bottom: 24px; }
+    .roadmaps-content { border-radius: 16px; }
+    .field-tabs { padding: 10px; }
+    .field-tabs button { padding-inline: 13px; }
+    .roadmap-heading { padding: 22px 17px 6px; }
+    .progress-summary { padding: 14px 17px 20px; }
+    .stage-list { gap: 10px; padding: 0 12px 16px; }
+    .stage-card { grid-template-columns: 48px minmax(0, 1fr); border-radius: 13px; }
+    .stage-topline { gap: 14px; padding: 16px 5px; }
+    .stage-check span { max-width: 42px; font-size: .58rem; }
+    .stage-body { padding: 15px 12px 17px; }
+    .stage-title-row { flex-direction: column; gap: 7px; }
+    .stage-title-row h3 { font-size: 1rem; }
+    .stage-duration { font-size: .7rem; }
+    .progress-copy { font-size: .8rem; }
 }
 
-/* تأثير التنوير والإضاءة لما تشاوري بالماوس على أي كارت */
-.card:hover, .media-card:hover {
-    transform: translateY(-5px);
-    border-color: #38bdf8 !important;
-    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.25);
-    transition: all 0.3s ease;
-}
-.media-card, .video-card {
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
-}
-
-.media-card:hover, .video-card:hover {
-    transform: translateY(-6px) !important;
-    border-color: #38bdf8 !important;
-    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.3) !important;
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
