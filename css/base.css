@@ -88,7 +88,7 @@ video, .form-container, .btn-primary {
     width: 100vw;
     height: 100vh;
     background-image: 
-        radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px);
+        radial-gradient(rgba(0, 179, 255, 0.15) 1px, transparent 1px);
     background-size: 30px 30px;
     pointer-events: none;
     z-index: 0;
@@ -101,7 +101,7 @@ video, .form-container, .btn-primary {
     left: -100px;
     width: 400px;
     height: 400px;
-    background: rgba(56, 189, 248, 0.2);
+    background: rgba(247, 4, 0, 0.99);
     filter: blur(120px);
     border-radius: 50%;
     z-index: 0;
@@ -113,27 +113,10 @@ video, .form-container, .btn-primary {
     right: -100px;
     width: 450px;
     height: 450px;
-    background: rgba(168, 85, 247, 0.15);
+    background: rgb(97, 23, 255);
     filter: blur(140px);
     border-radius: 50%;
     z-index: 0;
-}
-
-/* الشريط الأيقونات الجانبي المضيء */
-.side-floating-bar {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(17, 24, 39, 0.8);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    backdrop-filter: blur(10px);
-    padding: 12px 8px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    z-index: 99;
 }
 
 .side-floating-bar a {

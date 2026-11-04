@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     gap: 0.8rem 1.5rem;
     padding: 1rem 5%;
-    background-color: #0b1329;
+    background-color: #070837;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -54,7 +54,7 @@
 
 /* 2. الهيرو سكشن */
 .hero-section {
-    background: linear-gradient(180deg, #0b1329 0%, #111c3a 100%);
+    background: linear-gradient(180deg, #070837 0%, #240d30 100%);
     color: #ffffff;
     padding: 3rem 5% 5rem 5%;
     display: flex;
