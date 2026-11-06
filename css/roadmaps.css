@@ -1,12 +1,13 @@
+@import url("theme.css");
 :root {
     color-scheme: dark;
-    --roadmap-bg: #081321;
-    --roadmap-panel: rgba(15, 30, 51, .92);
-    --roadmap-card: #101f34;
+    --roadmap-bg: var(--bg);
+    --roadmap-panel: color-mix(in srgb, var(--card) 92%, transparent);
+    --roadmap-card: var(--card-alt);
     --roadmap-line: rgba(148, 163, 184, .18);
     --roadmap-text: #f1f5f9;
     --roadmap-muted: #a8b6c9;
-    --roadmap-accent: #38bdf8;
+    --roadmap-accent: var(--accent);
 }
 
 body {
@@ -80,9 +81,9 @@ body {
     transition: background .18s ease, color .18s ease, border-color .18s ease;
 }
 
-.field-tabs button:hover { background: rgba(56, 189, 248, .08); color: #fff; }
-.field-tabs button[aria-selected="true"] { border-color: rgba(56, 189, 248, .35); background: rgba(14, 116, 144, .25); color: #7dd3fc; }
-.field-tabs button:focus-visible, .stage-check input:focus-visible, .resource-list a:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; }
+.field-tabs button:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); color: #fff; }
+.field-tabs button[aria-selected="true"] { border-color: color-mix(in srgb, var(--accent) 35%, transparent); background: color-mix(in srgb, var(--accent-dark) 25%, transparent); color: var(--accent-light); }
+.field-tabs button:focus-visible, .stage-check input:focus-visible, .resource-list a:focus-visible { outline: 3px solid var(--accent-light); outline-offset: 3px; }
 
 .roadmap-status {
     padding: 28px;
@@ -100,27 +101,27 @@ body {
 .progress-copy { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; font-size: .9rem; }
 .progress-copy span { color: var(--roadmap-muted); }
 .progress-track { height: 10px; overflow: hidden; border-radius: 99px; background: #22334a; }
-.progress-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #0ea5e9, #2dd4bf); transition: width .25s ease; }
+.progress-track span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent-dark), var(--accent-2)); transition: width .25s ease; }
 
 .stage-list { display: grid; gap: 14px; margin: 0; padding: 0 30px 30px; list-style: none; counter-reset: stages; }
 .stage-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); overflow: hidden; border: 1px solid var(--roadmap-line); border-radius: 16px; background: var(--roadmap-card); transition: border-color .2s ease, opacity .2s ease; }
-.stage-card.is-complete { border-color: rgba(45, 212, 191, .48); }
-.stage-topline { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 20px 10px; border-inline-end: 1px solid var(--roadmap-line); background: rgba(2, 132, 199, .06); }
+.stage-card.is-complete { border-color: color-mix(in srgb, var(--accent-2) 48%, transparent); }
+.stage-topline { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 20px 10px; border-inline-end: 1px solid var(--roadmap-line); background: color-mix(in srgb, var(--accent-dark) 6%, transparent); }
 .stage-number { color: var(--roadmap-accent); font-size: 1.05rem; font-weight: 850; font-variant-numeric: tabular-nums; }
 .stage-check { display: grid; justify-items: center; gap: 6px; color: var(--roadmap-muted); cursor: pointer; }
-.stage-check input { width: 19px; height: 19px; margin: 0; accent-color: #14b8a6; cursor: pointer; }
+.stage-check input { width: 19px; height: 19px; margin: 0; accent-color: var(--accent-2); cursor: pointer; }
 .stage-check span { max-width: 52px; font-size: .65rem; line-height: 1.4; text-align: center; }
 .stage-body { min-width: 0; padding: 19px 22px 21px; }
 .stage-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .stage-title-row h3 { margin: 0; color: #f8fafc; font-size: 1.08rem; line-height: 1.5; }
-.stage-duration { flex: 0 0 auto; padding: 5px 9px; border-radius: 999px; background: rgba(56, 189, 248, .1); color: #7dd3fc; font-size: .76rem; }
+.stage-duration { flex: 0 0 auto; padding: 5px 9px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--accent-light); font-size: .76rem; }
 .skills-label, .resources-label { margin: 16px 0 8px; color: #cbd5e1; font-size: .83rem; font-weight: 800; }
 .skill-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; list-style: none; }
 .skill-list li { padding: 6px 10px; border: 1px solid rgba(148, 163, 184, .12); border-radius: 999px; background: rgba(148, 163, 184, .07); color: #cbd5e1; font-size: .78rem; }
 .resource-list { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
 .resource-list li { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-.resource-list a { display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: 7px; color: #7dd3fc; line-height: 1.6; text-decoration: none; }
-.resource-list a:hover { color: #bae6fd; text-decoration: underline; text-underline-offset: 3px; }
+.resource-list a { display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: 7px; color: var(--accent-light); line-height: 1.6; text-decoration: none; }
+.resource-list a:hover { color: var(--accent-lighter); text-decoration: underline; text-underline-offset: 3px; }
 .resource-meta { color: var(--roadmap-muted); font-size: .72rem; }
 .verify-note { color: #fbbf24; font-size: .7rem; }
 .stage-card.is-complete .stage-title-row h3 { color: #99f6e4; }

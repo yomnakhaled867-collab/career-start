@@ -1,3 +1,4 @@
+@import url("theme.css");
 /* قسم السيرة الذاتية */
 .cv-section {
     padding: 4rem 5%;
@@ -30,7 +31,7 @@
 }
 
 .cv-card {
-    background-color: #1a264a;
+    background-color: var(--card);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 1.8rem;
@@ -44,7 +45,7 @@
 
 .cv-card h3 {
     font-size: 1.2rem;
-    color: #38bdf8;
+    color: var(--accent);
     margin-bottom: 1rem;
 }
 

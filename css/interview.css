@@ -1,3 +1,4 @@
+@import url("theme.css");
 /* قسم الإنترفيو */
 .interview-section {
     padding: 4rem 5%;
@@ -6,7 +7,7 @@
 }
 
 .interview-box {
-    background-color: #1a264a;
+    background-color: var(--card);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
     padding: 2rem;
@@ -34,16 +35,16 @@
 }
 
 .tab-btn.active, .tab-btn:hover {
-    color: #38bdf8;
-    background-color: #0f172a;
+    color: var(--accent);
+    background-color: var(--panel);
 }
 
 .faq-item {
-    background-color: #0f172a;
+    background-color: var(--panel);
     padding: .6rem;
     border-radius: 8px;
     margin-bottom: 1rem;
-    border-right: 3px solid #2563eb;
+    border-right: 3px solid var(--btn);
 }
 
 .faq-item h4 {
@@ -71,8 +72,8 @@
 }
 
 .faq-card {
-    background-color: #0d1527;
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    background-color: var(--panel-deep);
+    border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
     border-radius: 12px;
     padding: 1rem 1.2rem;
     transition: all 0.3s ease;
@@ -81,8 +82,8 @@
 }
 
 .faq-card:hover {
-    border-color: #38bdf8;
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
 .faq-card summary {
@@ -103,7 +104,7 @@
 .faq-card summary::after {
     content: '➕';
     font-size: 0.9rem;
-    color: #38bdf8;
+    color: var(--accent);
     transition: transform 0.3s ease;
 }
 
