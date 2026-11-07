@@ -8,11 +8,12 @@
 
     // أضيفي ثيم جديد هنا (الاسم لازم يطابق data-theme في theme.css)
     var THEMES = [
-        { id: 'ocean',   label: 'أزرق',    color: '#38bdf8' },
+        { id: 'ocean',   label: 'أزرق',    color: '#3875f8' },
         { id: 'purple',  label: 'بنفسجي',  color: '#c084fc' },
-        { id: 'emerald', label: 'أخضر',    color: '#34d399' },
+        { id: 'emerald', label: 'أخضر',    color: '#34d371' },
         { id: 'sunset',  label: 'برتقالي', color: '#fb923c' },
-        { id: 'rose',    label: 'وردي',    color: '#fb7185' }
+        { id: 'rose',    label: 'وردي',    color: '#fb7185' },
+        { id: 'black',   label: 'أسود',    color: '#000000' }
     ];
 
     function valid(id) { return THEMES.some(function (t) { return t.id === id; }); }
