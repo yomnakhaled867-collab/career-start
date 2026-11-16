@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     result.hidden = false;
   };
   const cacheKey = 'careerStartCvAnalysis';
-  try { const cached = JSON.parse(localStorage.getItem(cacheKey)); if (cached?.data) render(cached.data, cached.source); } catch (_) { /* storage may be disabled */ }
+  //try { const cached = JSON.parse(localStorage.getItem(cacheKey)); if (cached?.data) render(cached.data, cached.source); } catch (_) { /* storage may be disabled */ }
   cancel.addEventListener('click', () => controller?.abort());
   form.addEventListener('submit', async event => {
     event.preventDefault(); let cv = textInput.value.trim();
