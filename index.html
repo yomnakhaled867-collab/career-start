@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/tokens.css">
     <title>career start | منصة دعم الخريجين الجدد</title>
     <meta name="description" content="منصة Career Start تساعد حديثي التخرج على اختيار المسار وتطوير المهارات والاستعداد للعمل.">
     <meta property="og:title" content="Career Start | منصة دعم الخريجين الجدد"><meta property="og:description" content="اختر مسارك، طوّر مهاراتك، واستعد لسوق العمل."><link rel="icon" href="assets/logo.png">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/intro.css">
+    <link rel="stylesheet" href="css/redesign.css">
     <script src="js/theme-switcher.js"></script>
     <script src="js/intro.js" defer></script>
 </head>
@@ -31,17 +33,14 @@
             <img src="assets/logo.png" alt="" loading="lazy" width="640" height="360" decoding="async">
             <span>Career Start <strong>AI</strong></span>
         </a>
-        <nav aria-label="التنقل الرئيسي">
-            <a href="pages/quiz.html">تحديد المسار</a>
-            <a href="pages/quiz.html">الاختبار</a>
-            <a href="pages/soft-skills.html">المهارات الشخصية</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="فتح القائمة">القائمة</button>
+        <nav id="main-navigation" aria-label="التنقل الرئيسي">
+            <a href="#how-it-works">كيف تعمل</a>
+            <a href="#tools">الأدوات</a>
             <a href="pages/roadmaps.html">خرائط التعلّم</a>
-            <a href="#cv-analyzer">تحليل CV</a>
-            <a href="pages/cv-builder.html">إنشاء CV</a>
-            <a href="pages/interview.html">الإنترفيو</a>
-            <a href="#media-gallery">معرض الوسائط</a>
+            <a href="#cv-analyzer">تحليل السيرة</a>
             <a href="#faq">الأسئلة الشائعة</a>
-            <a href="#feedback-section">تقييم المنصة</a>
+            <a class="nav-cta" href="pages/quiz.html">ابدأ الاختبار</a>
         </nav>
     </header>
         <!-- الشريط الأيقونات الجانبي (Floating Sidebar) -->
@@ -58,37 +57,41 @@
         <section id="home" class="hero-section">
             <div class="hero-text">
                 <span class="badge">دليلك الذكي لسوق العمل</span>
-                <h1>ابني مستقبلك المهني بذكاء وبخطوات ثابتة</h1>
+                <h1>خطوتك الأولى<br><strong>تبدأ من هنا</strong></h1>
                 <p>منصة متكاملة لحديثي التخرج لمساعدتك في تحديد مسارك المفضل، اكتساب المهارات، وتجهيز الـ CV والإنترفيو.</p>
-                <a href="pages/quiz.html" class="btn-primary">ابدأ من هنا · Start here</a>
+                <div class="hero-actions"><a href="pages/quiz.html" class="btn-primary">ابدأ الاختبار</a><a href="#how-it-works" class="btn-secondary">شاهد كيف يعمل</a></div>
+                <div class="trust-row" aria-label="معلومات عن المنصة"><span>٥ أدوات</span><span>١٠ أسئلة</span><span>٣ مجالات</span><span>مجاني</span></div>
             </div>
 
-            <!-- الزرار العائم وعليه علامة الاستفهام -->
-            <div id="floatingChatBtn" class="floating-btn" title="من نحن">
-                ؟
-            </div>
-
-            <!-- النافذة المنبثقة لتعريف من نحن -->
-            <div id="floatingModal" class="floating-modal" style="display: none;">
-                <div class="floating-modal-header">
-                    <h4>من نحن - Career Start</h4>
-                    <button id="closeFloatBtn" class="close-btn">&times;</button>
-                </div>
-                <div class="floating-modal-body">
-                    <p>نحن منصة تكنولوجية تعليمية تهدف إلى مساعدة الطلاب والخريجين على تحديد مسارهم المهني، استكشاف الشغف، بناء CV متكامل مع تحليل نقاط القوة والضعف و ما يجب التركيز عليه .</p>
-                    <br>
-                    <p>Next Station Team</p>
-                </div>
-            </div>
-
-            <!-- مكان الفيديو التعريفي -->
             <div class="hero-video">
                 <div class="video-container">
-                    <video controls aria-label="فيديو تعريفي بمنصة Career Start" poster="assets/main-poster.jpg" width="100%" height="360" preload="metadata">
+                    <video aria-label="فيديو تعريفي بمنصة Career Start" poster="assets/main-poster.jpg" width="100%" height="360" preload="none" playsinline>
                         <source src="assets/main.mp4" type="video/mp4">
                         متصفحك لا يدعم تشغيل الفيديو.
                     </video>
+                    <button class="video-play" type="button" aria-label="تشغيل الفيديو التعريفي"><span aria-hidden="true">▶</span><b class="video-caption">شاهد كيف تبدأ رحلتك</b></button>
                 </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-section" aria-labelledby="how-title">
+            <div class="section-title"><h2 id="how-title" class="how-title">من الحيرة إلى أول خطوة</h2><p>رحلة واضحة تساعدك على التحرك بثقة، خطوة وراء خطوة.</p></div>
+            <div class="how-steps">
+                <article class="how-step"><h3>اكتشف ميولك</h3><p>أجب عن أسئلة الاختبار العشرة لتتعرف إلى المجال الأقرب لك.</p></article>
+                <article class="how-step"><h3>اختر مجالاً</h3><p>استكشف البرمجة أو تصميم UI/UX أو التصميم الجرافيكي.</p></article>
+                <article class="how-step"><h3>تعلّم بالتدرّج</h3><p>اتبع خريطة تعلم منظمة بمصادر مجانية.</p></article>
+                <article class="how-step"><h3>استعد للتقديم</h3><p>جهّز سيرتك وتدرّب على المقابلات قبل خطوتك التالية.</p></article>
+            </div>
+        </section>
+
+        <section id="tools" class="tools-section" aria-labelledby="tools-heading">
+            <div class="section-title"><h2 id="tools-heading" class="tools-title">خمس أدوات، لتبدأ بثبات</h2><p>كل ما تحتاجه لتحدد اتجاهك وتستعد لأول فرصة مهنية.</p></div>
+            <div class="tool-bento">
+                <a class="tool-card" href="pages/quiz.html"><span class="tool-index">01 · اكتشف</span><div><h3>اختبار تحديد المسار</h3><p>تعرّف إلى المجال الأقرب لاهتماماتك من بين ثلاثة مجالات.</p></div><span class="tool-arrow" aria-hidden="true">←</span></a>
+                <a class="tool-card" href="pages/roadmaps.html"><span class="tool-index">02 · تعلّم</span><div><h3>خرائط التعلّم</h3><p>خطوات عملية ومصادر مجانية للمجالات المتاحة.</p></div><span class="tool-arrow" aria-hidden="true">←</span></a>
+                <a class="tool-card" href="#cv-analyzer"><span class="tool-index">03 · حسّن</span><div><h3>محلل السيرة الذاتية</h3><p>ملاحظات عملية على سيرتك الذاتية.</p></div><span class="tool-arrow" aria-hidden="true">←</span></a>
+                <a class="tool-card" href="pages/cv-builder.html"><span class="tool-index">04 · أنشئ</span><div><h3>منشئ السيرة الذاتية</h3><p>أنشئ سيرتك وصدّرها كملف PDF.</p></div><span class="tool-arrow" aria-hidden="true">←</span></a>
+                <a class="tool-card" href="pages/interview.html"><span class="tool-index">05 · تدرّب</span><div><h3>تدريب المقابلات</h3><p>تدرّب على أسئلة المقابلات حسب المجال.</p></div><span class="tool-arrow" aria-hidden="true">←</span></a>
             </div>
         </section>
 
@@ -141,6 +144,13 @@
                 <h3>أنشئ سيرتك الذاتية</h3>
                 <p>استخدم منشئ السيرة الذاتية لإدخال بياناتك ومعاينة التنسيق وطباعته كملف PDF.</p>
                 <a class="btn-primary" href="pages/cv-builder.html">افتح منشئ CV</a>
+                <section class="analyzer-section" aria-labelledby="analyzer-showcase-title">
+                    <div class="analyzer-copy"><h2 id="analyzer-showcase-title">مراجعة تساعدك على التحسين</h2><p>حلّل سيرتك واحصل على تقييم ونقاط قوة وخطوات عملية لتطويرها. المثال التوضيحي التالي يبيّن شكل النتيجة.</p></div>
+                    <div class="analyzer-result-demo" aria-label="مثال توضيحي لنتيجة تحليل السيرة الذاتية">
+                        <div class="demo-result-head"><div class="score-ring" aria-label="نتيجة توضيحية ٧.٨ من ١٠"><strong>٧.٨</strong></div><div><h3>ملخص التقييم</h3><p>نتيجة توضيحية لشكل التقرير</p></div></div>
+                        <div class="demo-result-columns"><div><h4>نقاط قوة</h4><ul><li>مشاريع واضحة</li><li>مهارات مرتبطة بالمجال</li></ul></div><div><h4>فرص للتحسين</h4><ul><li>إضافة نتائج قابلة للقياس</li><li>توضيح أثر المشاريع</li></ul></div></div>
+                    </div>
+                </section>
                 <div id="cv-analyzer" class="cv-analyzer-heading">
                     <span class="cv-eyebrow">مراجعة ذكية ومخصصة</span>
                     <h3>حلّل سيرتك الذاتية</h3>
@@ -236,7 +246,7 @@
         <!-- قسم الأسئلة الشائعة -->
         <section id="faq" class="faq-section">
             <div class="section-title">
-                <h2>الأسئلة الشائعة 🡻</h2>
+                <h2>الأسئلة الشائعة</h2>
                 <p>إجابات سريعة على أهم الاستفسارات التي تدور في ذهن كل خريج جديد</p>
             </div>
 
@@ -300,7 +310,7 @@
 
     <footer>
         <p>© 2026 جميع الحقوق محفوظة - منصة career start</p>
-        <a href="pages/soft-skills.html">المهارات الشخصية</a>
+        <a href="pages/quiz.html">الاختبار</a><a href="pages/roadmaps.html">خرائط التعلّم</a><a href="pages/cv-builder.html">إنشاء السيرة الذاتية</a><a href="pages/interview.html">المقابلات</a><a href="pages/soft-skills.html">المهارات الشخصية</a>
     </footer>
 
 <!-- زرار الدعم الفني العائم -->
@@ -331,5 +341,6 @@
     <script src="assets/media.config.js"></script>
     <script src="js/media-fallback.js"></script>
     <script src="js/floating-menu.js"></script>
+    <script src="js/shell.js"></script>
 </body>
 </html>

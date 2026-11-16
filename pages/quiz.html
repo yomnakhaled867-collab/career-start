@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/tokens.css">
     <title>تحديد المسار | Career Start</title>
     <meta name="description" content="اكتشف المجال المهني الأقرب لاهتماماتك ثم تابع خريطة تعلم مناسبة."><meta property="og:title" content="تحديد المسار | Career Start"><meta property="og:description" content="اختبار عربي لتحديد المجال المهني المناسب."><link rel="icon" href="../assets/logo.png">
     <link rel="stylesheet" href="../css/quiz.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/redesign.css">
     <script src="../js/data-fallback.js" defer></script>
     <script src="../js/quiz.js" defer></script>
 </head>
@@ -25,9 +27,25 @@
         <a href="soft-skills.html">المهارات الشخصية</a></nav>
     </header>
     <main>
+        <section class="quiz-main" aria-labelledby="quiz-title">
+            <div class="quiz-card">
+                <header class="quiz-heading">
+                    <h1 id="quiz-title">اكتشف المجال الأقرب لاهتماماتك</h1>
+                    <p>أجب عن ١٠ أسئلة قصيرة، ثم استكشف المجال الذي يناسبك.</p>
+                </header>
+                <p id="quizStatus" class="quiz-status" role="status" aria-live="polite">جارٍ تحميل أسئلة الاختبار…</p>
+                <div id="quizContent" hidden>
+                    <div class="quiz-progress-row"><span id="progressLabel">السؤال ١ من ١٠</span><strong id="progressPercent">٠٪</strong></div>
+                    <div class="quiz-progress" role="progressbar" aria-label="تقدم الاختبار" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressBar"></span></div>
+                    <fieldset class="question-block"><legend id="questionText">سؤال الاختبار</legend><div id="answerList" class="answer-list"></div></fieldset>
+                    <div class="quiz-actions"><button id="backButton" class="quiz-button secondary" type="button" disabled>السابق</button><button id="nextButton" class="quiz-button primary" type="button" disabled>التالي</button></div>
+                </div>
+                <section id="quizResult" class="quiz-result" aria-live="polite" hidden></section>
+            </div>
+        </section>
         <section id="assessment" class="assessment-section">
-            <h2>استمارة تحديد المسار الوظيفي</h2>
-            <p>ادخل بياناتك واهتماماتك للحصول على توصيات مخصصة لك:</p>
+            <h2>توصيات إضافية حسب اختياراتك</h2>
+            <p>أضف تفضيلاتك للحصول على مقترحات عملية للتعلّم والبحث عن فرص مناسبة.</p>
 
             <form id="careerForm" class="career-form">
                 <div class="form-group">
@@ -99,5 +117,6 @@
     <footer><p>© 2026 جميع الحقوق محفوظة - منصة career start</p><a href="soft-skills.html">المهارات الشخصية</a>
     </footer>
     <script src="../assets/media.config.js"></script><script src="../js/media-fallback.js"></script><script src="../js/floating-menu.js"></script>
+<script src="../js/shell.js"></script>
 </body>
 </html>
