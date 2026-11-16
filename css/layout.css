@@ -281,7 +281,88 @@ footer {
     background-color: var(--btn-hover);
     box-shadow: 0 6px 20px color-mix(in srgb, var(--btn) 60%, transparent);
 }
+/* الخلفية الشفافة */
+.floating-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(4px) !important;
+    z-index: 9999999 !important;
+    display: none;
+}
 
+/* المربع الرئيسي للنافذة */
+.floating-modal-content {
+    position: fixed !important;
+    bottom: 110px !important;
+    right: 25px !important;
+    width: 380px !important;
+    /* خلفية المستطيل تتغير حسب ثيم الموقع أوتوماتيك */
+    background: var(--surface, #111827) !important; 
+    color: var(--text, #f3f4f6) !important;
+    /* الإطار الخارجي بياخد لون الثيم النشط بدرجة شفافة شيك جداً */
+    border: 1px solid color-mix(in srgb, var(--brand, #4b8cff) 40%, transparent) !important;
+    border-radius: 16px !important;
+    padding: 0 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.75) !important;
+    direction: rtl !important;
+    z-index: 10000000 !important;
+    overflow: hidden !important;
+}
+
+/* الشريط العلوي الشيك (Nav) للعنوان وزر الـ X */
+.modal-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 12px 18px !important;
+}
+
+/* العنوان بياخد لون الثيم النشط في الموقع تلقائياً */
+.modal-title {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: var(--brand, #4b8cff) !important; /* بيتغير مع ثيم الموقع أوتوماتيك */
+}
+
+/* زر الـ X (بتحكم في مكانه هنا، لو عايزاه يمين أو شمال جوه الشريط) */
+.close-btn {
+    position: static !important;
+    background: none !important;
+    border: none !important;
+    color: #9ca3af !important;
+    font-size: 1.4rem !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+}
+
+.close-btn:hover {
+    color: #ffffff !important;
+}
+
+.modal-desc {
+    font-size: 0.85rem !important;
+    line-height: 1.8 !important;
+    color: #d1d5db !important;
+    margin: 0 !important;
+    padding: 16px 20px 10px 20px !important;
+    text-align: right !important;
+}
+
+/* اسم التيم على جنب زي التوقيع */
+.team-signature {
+    text-align: left !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    color: #9ca3af !important;
+    padding: 0 20px 16px 20px !important;
+    letter-spacing: 0.3px !important;
+}
 /* خلفية النافذة المنبثقة */
 .modal-overlay {
     display: none;

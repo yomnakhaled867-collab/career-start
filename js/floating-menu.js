@@ -10,7 +10,6 @@
         ['cairo',   'Cairo',      '"Cairo",sans-serif',                'Cairo'],
         ['almarai', 'Almarai',    '"Almarai",sans-serif',              'Almarai'],
         ['ibm',     'IBM Plex',   '"IBM Plex Sans Arabic",sans-serif', 'IBM+Plex+Sans+Arabic'],
-        ['kufi',    'Noto Kufi',  '"Noto Kufi Arabic",sans-serif',     'Noto+Kufi+Arabic'],
         ['amiri',   'Amiri',      '"Amiri",serif',                     'Amiri'],
         ['messiri', 'El Messiri', '"El Messiri",sans-serif',           'El+Messiri'],
         ['changa',  'Changa',     '"Changa",sans-serif',               'Changa'],
@@ -26,7 +25,7 @@
         black:   'assets/main-poster.jpg'
     };
 
-    /* بيانات "عن المنصة" (تظهر في آخر الإعدادات): غيّريها زي ما تحبي */
+
     var ABOUT = { name: 'Career Start AI', version: '1.0', team: 'اسم الفريق' };
 
     var K_THEME = 'careerstart-theme', K_USER = 'cs-user', K_FONT_SIZE = 'cs-font', K_FONT_FAMILY = 'cs-ff', K_PLAIN = 'cs-plain', K_MOUSE = 'cs-glow';

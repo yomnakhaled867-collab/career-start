@@ -111,3 +111,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const aboutBtn = document.getElementById('aboutUsBtn');
+    const aboutModal = document.getElementById('aboutModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    if (aboutBtn && aboutModal) {
+        aboutBtn.addEventListener('click', () => {
+            aboutModal.style.display = 'block'; // فتح الخلفية الشفافة
+        });
+    }
+
+    if (closeModalBtn && aboutModal) {
+        closeModalBtn.addEventListener('click', () => {
+            aboutModal.style.display = 'none'; // إغلاق بالـ X
+        });
+    }
+
+    // إغلاق النافذة عند الضغط في أي مكان خارج المربع (على الخلفية السوداء الشفافة)
+    window.addEventListener('click', (e) => {
+        if (e.target === aboutModal) {
+            aboutModal.style.display = 'none';
+        }
+    });
+});
