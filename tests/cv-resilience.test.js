@@ -15,17 +15,37 @@ assert.equal(improve('', 'summary', 'ar'), '');
 assert.match(improve('  صممت   واجهة واجهة  للمستخدمين  ', 'experience', 'ar'), /^صممت واجهة للمستخدمين$/);
 assert.match(improve('  built   built dashboard   for users ', 'experience', 'en'), /^Built dashboard for users$/);
 assert.equal(improve('   Led   team  \n\n  created created  app ', 'project', 'en'), 'Led team\nCreated app');
-async function invoke(handler, ip) {
-  const req = { method: 'POST', headers: {'content-type':'application/json'}, body: {field:'Programming',text:good}, socket: {remoteAddress:ip} };
+async function invoke(handler, ip, text = good) {
+  const req = { method: 'POST', headers: {'content-type':'application/json'}, body: {field:'Programming',text}, socket: {remoteAddress:ip} };
   const res = { setHeader(){}, status(n){this.statusCode=n;return this}, json(data){this.data=data;return data} };
-  await handler(req,res); assert.equal(res.statusCode,200); assert.equal(res.data.ok,true); assert.equal(res.data.source,'local'); assert.equal(typeof res.data.result.score,'number');
+  await handler(req,res); return res;
 }
 async function fallbackWhenProviderFails() {
   const handler = require('../api/analyze-cv'); const originalFetch = global.fetch, originalKey = process.env.GEMINI_API_KEY;
   try {
-    delete process.env.GEMINI_API_KEY; await invoke(handler,'no-key');
-    process.env.GEMINI_API_KEY = 'invalid-test-key'; global.fetch = async () => ({ ok:false, status:403, headers:{get(){return null}} }); await invoke(handler,'wrong-key');
-    global.fetch = async () => { const error = new Error('simulated timeout'); error.name = 'AbortError'; throw error; }; await invoke(handler,'timeout');
+    delete process.env.GEMINI_API_KEY;
+    const missing = await invoke(handler,'no-key');
+    assert.equal(missing.statusCode,200); assert.equal(missing.data.source,'local'); assert.equal(missing.data.reason,'missing_key'); assert.equal(typeof missing.data.analysis.score,'number');
+    const empty = await invoke(handler,'empty','   ');
+    assert.equal(empty.statusCode,400); assert.equal(empty.data.error,'text_too_short');
+    process.env.GEMINI_API_KEY = 'invalid-test-key';
+    global.fetch = async () => ({ ok:false, status:429, headers:{get(){return null}} });
+    const limited = await invoke(handler,'provider-429');
+    assert.equal(limited.data.source,'local'); assert.equal(limited.data.reason,'provider_429');
+    global.fetch = async () => ({ ok:true, status:200, json:async()=>({candidates:[{content:{parts:[{text:'not json'}]}}]}) });
+    const malformed = await invoke(handler,'bad-json');
+    assert.equal(malformed.data.source,'local'); assert.equal(malformed.data.reason,'bad_json');
+    global.fetch = async (url, options) => {
+      assert.match(url, /generativelanguage\.googleapis\.com\/v1beta\/models\/gemini-3\.5-flash-lite:generateContent$/);
+      assert.equal(options.headers['x-goog-api-key'], 'invalid-test-key');
+      const result = {score:8,ats_score:7,field_fit:8,summary:'تحليل خاص بهذه السيرة',strengths:['مشروع لوحة بيانات'],weaknesses:['إضافة تفاصيل أكثر'],missing_skills:['اختبار الوحدات'],improvements:['وضح أثر المشروع']};
+      return {ok:true,status:200,json:async()=>({candidates:[{content:{parts:[{text:JSON.stringify(result)}]}}]})};
+    };
+    const success = await invoke(handler,'provider-success');
+    assert.equal(success.data.source,'ai'); assert.equal(success.data.ok,true); assert.equal(success.data.analysis.summary,'تحليل خاص بهذه السيرة');
+    global.fetch = async () => { const error = new Error('simulated timeout'); error.name = 'AbortError'; throw error; };
+    const timeout = await invoke(handler,'timeout');
+    assert.equal(timeout.data.reason,'timeout');
   } finally {
     global.fetch = originalFetch; if(originalKey===undefined) delete process.env.GEMINI_API_KEY; else process.env.GEMINI_API_KEY=originalKey;
   }

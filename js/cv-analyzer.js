@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const cancel = document.createElement('button'); cancel.type = 'button'; cancel.className = 'cv-cancel-button'; cancel.textContent = 'إلغاء التحليل'; cancel.hidden = true; button.after(cancel);
   const say = (value, kind = '') => { message.textContent = value; message.className = `cv-form-message ${kind}`; message.hidden = !value; };
   const escape = value => String(value || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
-  textInput.addEventListener('input', () => { count.textContent = `${textInput.value.length} / 12000`; });
+  textInput.maxLength = 6000;
+  textInput.addEventListener('input', () => { count.textContent = `${textInput.value.length} / 6000`; });
   const allowed = /\.(pdf|docx|txt)$/i;
   fileInput.accept = '.pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain';
   const uploadArea = document.getElementById('cvUploadArea'), selectedBox = document.getElementById('cvSelectedFile');
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   const render = (data, source) => {
     const fields = [['نقاط القوة','strengths'],['نقاط تحتاج إلى تحسين','weaknesses'],['مهارات لإبرازها','missing_skills'],['خطوات مقترحة','improvements']];
-    result.innerHTML = `<p class="cv-source-badge">${source === 'ai' ? 'تحليل بالذكاء الاصطناعي' : 'تحليل ذكي محلي'}</p><h3>نتيجة التقييم: ${Number(data.score).toFixed(1)}/10</h3><p>${escape(data.summary)}</p><p>ملاءمة ATS: ${Number(data.ats_score).toFixed(1)}/10 · توافق المجال: ${Number(data.field_fit).toFixed(1)}/10</p><div class="cv-result-grid">${fields.map(([title,key])=>`<article class="cv-result-card"><h4>${title}</h4><ul>${(data[key]||[]).map(item=>`<li>${escape(item)}</li>`).join('')}</ul></article>`).join('')}</div>`;
+    result.innerHTML = `<p class="cv-source-badge">${source === 'ai' ? 'AI' : 'تحليل ذكي محلي'}</p><h3>نتيجة التقييم: ${Number(data.score).toFixed(1)}/10</h3><p>${escape(data.summary)}</p><p>ملاءمة ATS: ${Number(data.ats_score).toFixed(1)}/10 · توافق المجال: ${Number(data.field_fit).toFixed(1)}/10</p><div class="cv-result-grid">${fields.map(([title,key])=>`<article class="cv-result-card"><h4>${title}</h4><ul>${(data[key]||[]).map(item=>`<li>${escape(item)}</li>`).join('')}</ul></article>`).join('')}</div>`;
     result.hidden = false;
   };
   const cacheKey = 'careerStartCvAnalysis';
@@ -66,15 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault(); let cv = textInput.value.trim();
     if (!cv && chosenFile) { if (chosenFile.size > 3 * 1024 * 1024) return say('حجم الملف أكبر من 3 ميجابايت.', 'error'); if (!allowed.test(chosenFile.name)) return say('اختر ملف PDF أو DOCX أو TXT.', 'error'); say('جارٍ استخراج النص من الملف…','loading'); try { cv = (await extract(chosenFile)).trim(); } catch (_) { return say('تعذر استخراج النص. الصق محتوى السيرة في الحقل وحاول مجدداً.','error'); } }
     if (cv.length < 40) return say('أضف نصاً أطول (40 حرفاً على الأقل) أو اختر ملفاً يحتوي على نص.','error');
-    if (cv.length > 12000) return say('النص طويل جداً. اختصره إلى 12,000 حرف.','error');
+    if (cv.length > 6000) return say('النص طويل جداً. اختصره إلى 6,000 حرف.','error');
     const field = document.getElementById('cvTargetField').value; button.disabled = true; cancel.hidden = false; result.hidden = true; form.classList.add('is-loading'); say('جارٍ تحليل السيرة الذاتية…','loading');
     controller = new AbortController();
     try {
       const apiPath = location.pathname.includes('/pages/') ? '../api/analyze-cv' : 'api/analyze-cv';
       const response = await fetch(apiPath, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ field, text:cv }), signal:controller.signal });
-      const payload = await response.json(); if (!response.ok || !payload.ok || !payload.result) throw new Error('fallback');
-      render(payload.result, payload.source); try { localStorage.setItem(cacheKey, JSON.stringify({ data:payload.result, source:payload.source })); } catch (_) { }
-      say(payload.warning || 'اكتمل التحليل. يمكنك تعديل النص وإعادة المحاولة.','success');
+      const payload = await response.json(); if (!response.ok || !payload.ok || !payload.analysis || !['ai', 'local'].includes(payload.source)) throw new Error('invalid response');
+      render(payload.analysis, payload.source); try { localStorage.setItem(cacheKey, JSON.stringify({ data:payload.analysis, source:payload.source })); } catch (_) { }
+      if (payload.source === 'local') say('خدمة AI غير متاحة الآن: عُرض التحليل الذكي المحلي', 'success');
+      else say('اكتمل التحليل بالذكاء الاصطناعي.', 'success');
     } catch (_) {
       if (controller.signal.aborted) { say('أُلغي التحليل. يمكنك المحاولة مرة أخرى.'); return; }
       const data = local(cv, field); render(data, 'local'); try { localStorage.setItem(cacheKey, JSON.stringify({data,source:'local'})); } catch (_) { }

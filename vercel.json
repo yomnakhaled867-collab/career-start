@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/analyze-cv.js": {
+      "maxDuration": 30
+    }
+  }
+}
