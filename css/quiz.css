@@ -86,23 +86,7 @@
     box-shadow: 0 10px 20px color-mix(in srgb, var(--btn) 40%, transparent);
 }
 
-/* 4. كارت النتيجة */
-.results-container {
-    margin-top: 1.8rem;
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border-top: 4px solid var(--btn);
-    color: #1e293b;
-}
 
-.results-container h3 {
-    color: var(--panel);
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-}
 
 .quiz-main { width: min(100% - 2rem, 760px); margin: 3rem auto 4rem; }
 .quiz-card { padding: clamp(1.25rem, 5vw, 2.5rem); border: 1px solid rgba(148,163,184,.2); border-radius: 20px; background: color-mix(in srgb, var(--card-alt) 94%, transparent); box-shadow: 0 24px 70px rgba(0,0,0,.28); }
