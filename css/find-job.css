@@ -35,6 +35,8 @@
 .form-group select {
     width: 100%;
     padding: 0.75rem 1rem;
+
+
     background-color: var(--panel);
     border: 1px solid #334155;
     border-radius: 8px;
@@ -60,6 +62,9 @@
 .form-group input:focus,
 .form-group select:focus {
     border-color: var(--accent, var(--btn)) !important;
+
+    outline: 2px solid color-mix(in srgb, var(--accent, #3b82f6) 45%, transparent);
+    outline-offset: 2px;
 }
 
 .form-group option {
@@ -73,4 +78,29 @@
 
 .btn-submit:hover {
     background: color-mix(in srgb, var(--btn, var(--accent, #3b82f6)) 85%, black) !important;
+
 }
+
+.career-form .field-error,.inline-error { display:block; min-height:1.35em; margin:.25rem 0 0; color:#ff9b9b; font-size:.88rem }
+.career-form [aria-invalid="true"] { border-color:#ff7777 !important }
+.form-actions { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center }
+.reset-button { min-height:48px; padding:.65rem 1rem; border:1px solid var(--line); border-radius:12px; background:transparent; color:var(--text); cursor:pointer }
+.reset-button:focus-visible,.results-container a:focus-visible { outline:2px solid var(--accent,#3b82f6); outline-offset:3px }
+.results-container[hidden] { display:none }
+.results-container { scroll-margin-top:1rem; padding:clamp(1rem,3vw,2rem) }
+.recommendation-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:.85rem; margin-block:1rem }
+.recommendation-card { min-width:0; padding:1rem; border:1px solid var(--line); border-radius:12px; background:var(--panel); overflow-wrap:anywhere }
+.recommendation-card h4,.recommendation-card h5 { margin:.1rem 0 .65rem; color:var(--text) }
+.recommendation-card p,.recommendation-card li { color:var(--text); line-height:1.7 }
+.recommendation-card ul { padding-inline-start:1.35rem; margin:.4rem 0 }
+.recommendation-card a,.places-section a { color:var(--accent,#8ab4ff); text-underline-offset:3px }
+.card-type { color:var(--muted,#aab4c4); font-size:.85rem }
+.places-section { margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--line) }
+.remote-prominent { grid-column:1/-1; border-color:var(--accent,#3b82f6) }
+.recommendation-skeleton { display:grid; gap:.7rem; padding:.6rem 0 }
+.recommendation-skeleton span { display:block; height:1.1rem; border-radius:8px; background:linear-gradient(90deg,var(--panel),var(--line),var(--panel)); background-size:200% 100%; animation:recommendation-shimmer 1.1s linear infinite }
+.recommendation-skeleton span:nth-child(2) { width:82% }.recommendation-skeleton span:nth-child(3) { width:65% }
+@keyframes recommendation-shimmer { to { background-position:-200% 0 } }
+@media (prefers-reduced-motion:reduce) { .recommendation-skeleton span { animation:none } }
+@media (max-width:520px) { .form-actions { align-items:stretch; flex-direction:column }.form-actions button { width:100% } }
+

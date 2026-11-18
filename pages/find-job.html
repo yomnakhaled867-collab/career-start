@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/redesign.css">
     <link rel="stylesheet" href="../css/find-job.css">
     <script src="../js/data-fallback.js" defer></script>
+    <script src="../js/recommendations.js" defer></script>
     <script src="../js/find-job.js" defer></script>
 
 </head>
@@ -36,69 +37,57 @@
             <h2>توصيات إضافية حسب اختياراتك</h2>
             <p>أضف تفضيلاتك للحصول على مقترحات عملية للتعلّم والبحث عن فرص مناسبة.</p>
 
-            <form id="careerForm" class="career-form">
+            <form id="careerForm" class="career-form" novalidate>
                 <div class="form-group">
                     <label for="fullName">الاسم الأول:</label>
-                    <input type="text" id="fullName" placeholder="مثال: ياسمين" required>
+                    <input type="text" id="fullName" placeholder="مثال: ياسمين" autocomplete="given-name" aria-describedby="fullName-error" required>
+                    <small class="field-error" id="fullName-error"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="governorate">المحافظة:</label>
-                    <select id="governorate" required>
-                        <option value="">اختر محافظتك...</option>
-                        <option value="دمياط">دمياط</option>
-                        <option value="القاهرة">القاهرة</option>
-                        <option value="الإسكندرية">الإسكندرية</option>
-                        <option value="الدقهلية">الدقهلية</option>
-                        <option>الشرقية</option>
-                        <option>الوادي الجديد</option>
-                        <option>بورسعيد</option>
-                        <option>السويس</option>
-                        <option>البحر الأحمر</option>
-                        <option>الجيزة</option>
-                        <option>بني سويف</option>
-                        <option>أسوان</option>
-                        <option>شمال سيناء</option>
-                        <option value="أخرى">محافظة أخرى</option>
-                    </select>
+                    <select id="governorate" aria-describedby="governorate-error" required><option value="">اختر محافظتك...</option></select>
+                    <small class="field-error" id="governorate-error"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="workEnv">نوع العمل:</label>
-                    <select id="workEnv">
+                    <select id="workEnv" aria-describedby="workEnv-error" required>
+                        <option value="">اختر نوع العمل...</option>
                         <option value="remote">عمل حر / عن بُعد (Remote)</option>
                         <option value="onsite">من مقر الشركة (On-site)</option>
                         <option value="hybrid">هجين (Hybrid)</option>
                     </select>
+                    <small class="field-error" id="workEnv-error"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="jobType">دوام العمل:</label>
-                    <select id="jobType" required>
+                    <select id="jobType" aria-describedby="jobType-error" required>
+                        <option value="">اختر دوام العمل...</option>
                         <option value="full-time">دوام كامل (Full-time)</option>
                         <option value="part-time">دوام جزئي (Part-time)</option>
-                        <option value="freelance">(Freelance)</option>
+                        <option value="internship">تدريب (Internship)</option>
+                        <option value="freelance">عمل حر (Freelance)</option>
                     </select>
+                    <small class="field-error" id="jobType-error"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="interest">المجال / الاهتمام الرئيسي:</label>
-                    <select id="interest" required>
-                        <option value="ui-ux">تصميم واجهات المستخدم (UI/UX)</option>
-                        <option value="programming">تطوير البرمجيات والويب (Programming)</option>
-                        <option value="graphic">التصميم الجرافيكي (Graphic Design)</option>
-                        <option value="qa">جودة البرمجيات (Software QA)</option>
-                    </select>
+                    <select id="interest" aria-describedby="interest-error" required><option value="">اختر المجال...</option></select>
+                    <small class="field-error" id="interest-error"></small>
                 </div>
 
-                <button type="submit" class="btn-submit">عرض التوصيات المخصصة ✨</button>
+                <div class="form-actions"><button type="submit" class="btn-submit">✨ عرض التوصيات المخصصة</button><button type="reset" id="resetForm" class="reset-button">إعادة ضبط</button></div>
             </form>
 
             <!-- مكان ظهور التوصيات -->
-            <div id="results" class="results-container" style="display: none;">
+            <div id="results" class="results-container" hidden aria-live="polite" aria-busy="false" tabindex="-1">
                 <h3>توصيات مسارك المهني:</h3>
                 <div id="recommendationsOutput"></div>
             </div>
+            <p id="dataError" class="inline-error" role="alert" hidden>تعذر تحميل قائمة المحافظات الآن. حدّث الصفحة وحاول مرة أخرى.</p>
             <div class="section-image-box">
     <img src="../assets/path-icon.png" alt="تحديد المسار المهني" loading="lazy" width="640" height="360" decoding="async">
 </div>

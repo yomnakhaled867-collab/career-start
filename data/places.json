@@ -1,0 +1,326 @@
+{
+  "القاهرة": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الجيزة": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الإسكندرية": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "القليوبية": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "بورسعيد": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "السويس": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الإسماعيلية": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "دمياط": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الدقهلية": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الشرقية": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الغربية": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "المنوفية": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "كفر الشيخ": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "البحيرة": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الفيوم": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "بني سويف": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "المنيا": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "أسيوط": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "سوهاج": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "قنا": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الأقصر": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "أسوان": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "البحر الأحمر": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "الوادي الجديد": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "مطروح": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "شمال سيناء": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ],
+  "جنوب سيناء": [
+    {
+      "name": "ابحث عن فرص في {{governorate}}",
+      "type": "بحث محلي",
+      "fields": [
+        "*"
+      ],
+      "note": "لا تتوفر لدينا أماكن موثقة لهذا المجال في {{governorate}}. ابحث عن الجهات والفرص الحالية باستخدام روابط المجال والمحافظة.",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query={{query}}",
+      "fallback": true
+    }
+  ]
+}
