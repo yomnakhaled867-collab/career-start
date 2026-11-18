@@ -1,0 +1,76 @@
+/* صندوق النتائج الأساسي متوافق مع الثيم */
+.results-container {
+    margin-top: 1.8rem;
+    background: var(--card) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 14px !important;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    color: #ffffff !important;
+    direction: rtl;
+    text-align: right;
+}
+
+/* صندوق النصيحة الأخيرة متفاعل تماماً مع ألوان الثيم */
+.results-container p[style*="background"] {
+    background: var(--panel) !important;
+    color: #ffffff !important;
+    border-right: 4px solid var(--accent, #3b82f6) !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+}
+
+.results-container h3, 
+.results-container h4 {
+    color: #ffffff !important;
+    font-weight: 800;
+}
+
+.results-container p,
+.results-container li {
+    color: #f1f5f9 !important;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--panel);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--panel) !important;
+    border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12)) !important;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #ffffff !important;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--accent, var(--btn)) !important;
+}
+
+.form-group option {
+    background-color: var(--panel);
+    color: #ffffff;
+}
+/* أجبار زرار التوصيات والأزرار على أخذ لون الـ accent أو الـ btn الحالي أياً كان */
+.btn-submit {
+    background: var(--btn, var(--accent, #6c7b94)) !important;
+}
+
+.btn-submit:hover {
+    background: color-mix(in srgb, var(--btn, var(--accent, #3b82f6)) 85%, black) !important;
+}
