@@ -39,7 +39,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     dataError.hidden = false;
     return;
   }
-
+  try {
+      const fullNameInput = document.getElementById('fullName');
+      if (fullNameInput) {
+        fullNameInput.value = '';
+        fullNameInput.placeholder = 'مثال: ياسمين';
+      }
+    } catch (_) {
+      // Storage may be disabled; the form remains usable.
+    }
+    
   inputs.forEach(id => {
     const control = document.getElementById(id);
     if (control) {
